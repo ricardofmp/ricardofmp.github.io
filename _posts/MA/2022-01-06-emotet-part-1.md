@@ -25,7 +25,7 @@ SHA1: 2EA0262CD42378AD00462D080FF18BFE994BB8FC
 
 SHA256: 3A9494F66BABC7DEB43F65F9F28C44BD9BD4B3237031D80314AE7EB3526A4D8F
 
-# virustotal [VT](https://www.virustotal.com/gui/search/CA06ACD3E1CAB1691A7670A5F23BAEF4)
+# Virustotal [VT](https://www.virustotal.com/gui/search/CA06ACD3E1CAB1691A7670A5F23BAEF4)
 When scanning malware using VirusTotal website we can see that the malware is detected by 57
 out of 68 security vendors as trojan malware and we can see
 
@@ -81,7 +81,7 @@ Shows that it has **high** entropy in **.text** section which is an indicator to
 *Level 1 is most malicious and bigger numbers “3” are less malicious
 Shows different malicious indicators that help us in the analysis
 
-##  Sections section:
+## Sections section:
 
 [![](/assets/images/MA/emotet-1/7.png)](/assets/images/MA/emotet-1/7.png)
 <center><font size="3"> <u>Figure</u>(7): <u></u> </font></center> 
@@ -111,7 +111,11 @@ Strings are good indicators to know what this malware is trying to do on the sys
 To analyze the assemble code to know how to unpack and where to start the debugging
 Open it in IDA: It shows that is low number of functions which another indicator that is packed
 
-<center> [![](/assets/images/MA/emotet-1/9.png)](/assets/images/MA/emotet-1/9.png) </center>
+<p align="center">
+  <img src="/assets/images/MA/emotet-1/9.png" />
+</p>
+
+[![](/assets/images/MA/emotet-1/9.png)](/assets/images/MA/emotet-1/9.png)
 <center><font size="3"> <u>Figure</u>(9): <u></u> </font></center> 
 <br>
 
