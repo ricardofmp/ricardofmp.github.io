@@ -110,7 +110,9 @@ Shows different malicious indicators that help us in the analysis
     3-.text section is executable 
     4-.data section is writable 
 
-## Strings section: *press over “blacklist” to list them
+## Strings section:
+
+**press over “blacklist” to list them**
 
 <p align="center">
   <img src="/assets/images/MA/emotet-1/8.png" />
