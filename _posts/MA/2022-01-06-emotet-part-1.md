@@ -79,17 +79,19 @@ Shows different malicious indicators that help us in the analysis
 
 **The previous figure shows:**
 
-    1-.text section is packed <br>
+    1-.text section is packed 
     2-.text section contains the entry point for the executable. This means that, in addition to
         holding the compressed data, .text section also contains the stub code responsible for
         unpacking.
-        *The section which is responsible for unpacking can vary as in UPX packing <br>
-    3-.text section is executable <br>
-    4-.data section is writable <br>
+        *The section which is responsible for unpacking can vary as in UPX packing 
+    3-.text section is executable 
+    4-.data section is writable 
 
-## Strings section: *press over “blacklist” to list them 
+## Strings section: *press over “blacklist” to list them
+
 [![](/assets/images/MA/emotet-1/8.png)](/assets/images/MA/emotet-1/8.png)
 <center><font size="3"> <u>Figure</u>(8): <u></u> </font></center> 
+
 
 Strings are good indicators to know what this malware is trying to do on the system
 
@@ -97,12 +99,15 @@ Strings are good indicators to know what this malware is trying to do on the sys
 
 To analyze the assemble code to know how to unpack and where to start the debugging
 Open it in IDA: It shows that is low number of functions which another indicator that is packed
+
 [![](/assets/images/MA/emotet-1/9.png)](/assets/images/MA/emotet-1/9.png)
 <center><font size="3"> <u>Figure</u>(9): <u></u> </font></center> 
 
 Press over “start” which located in the function as in the previous figure to get started
+
 [![](/assets/images/MA/emotet-1/10.png)](/assets/images/MA/emotet-1/10.png)
 <center><font size="3"> <u>Figure</u>(10): <u></u> </font></center> 
+
 
 This sample of Emotet uses a customized packer. Instead of trying to reverse the algorithm to
 unpack the next stage, we can use **dynamic analysis**. We will let the malware do the unpacking
@@ -114,23 +119,25 @@ If you searched you will find that **call sub_417D50** is the unpacking routine
 [![](/assets/images/MA/emotet-1/11.png)](/assets/images/MA/emotet-1/11.png)
 <center><font size="3"> <u>Figure</u>(11): <u></u> </font></center> 
 
+
 This our unpacking function: **sub_417D50**
 
 [![](/assets/images/MA/emotet-1/12.png)](/assets/images/MA/emotet-1/12.png)
 <center><font size="3"> <u>Figure</u>(12): <u></u> </font></center> 
 
-First we need to clear **what normal epilogue and prologue are?**
 
-The procedure prologue and epilogue are standard initialization sequences that compilers
-generate for almost all of their functions
+First we need to clear **what normal epilogue and prologue are?**
+    The procedure prologue and epilogue are standard initialization sequences that compilers generate for almost all of their functions
 
 [![](/assets/images/MA/emotet-1/13.png)](/assets/images/MA/emotet-1/13.png)
 <center><font size="3"> <u>Figure</u>(13): <u></u> </font></center> 
+
 
 What is **NOT normal** here is epilogue in the last figure:
 
 [![](/assets/images/MA/emotet-1/14.png)](/assets/images/MA/emotet-1/14.png)
 <center><font size="3"> <u>Figure</u>(14): <u></u> </font></center> 
+
 
 you don't push anything before ret this called abnormal.
 normal epilogue is to pop EBP before ret. Here it will return ecx because it executes the last
@@ -145,7 +152,9 @@ We need to know what is happening in this function?
 [![](/assets/images/MA/emotet-1/15.png)](/assets/images/MA/emotet-1/15.png)
 <center><font size="3"> <u>Figure</u>(15): <u></u> </font></center> 
 
+
 **In the last figure we see the coming:**
+
     VirtualAlloc is moved to ECX, then
     ECX is moved to dword_41C218, then
     dword_41C218 is moved to ECX
@@ -157,7 +166,9 @@ So we need to know the address of this function to set a Breakpoint in x64dbg by
 [![](/assets/images/MA/emotet-1/16.png)](/assets/images/MA/emotet-1/16.png)
 <center><font size="3"> <u>Figure</u>(16): <u></u> </font></center> 
 
-We know that code is packed. We search for abnormal jumps:
+
+We know that code is packed. **We search for abnormal jumps:**
+
     jump or call Instructions to registers
     Jump to strange memory addresses (long jump)
 
@@ -173,11 +184,16 @@ Here we see our abnormal jmp ecx:
 [![](/assets/images/MA/emotet-1/17.png)](/assets/images/MA/emotet-1/17.png)
 <center><font size="3"> <u>Figure</u>(17): <u></u> </font></center> 
 
+
 Press “space” to get its address: '00417F1F'
 
 [![](/assets/images/MA/emotet-1/18.png)](/assets/images/MA/emotet-1/18.png)
 <center><font size="3"> <u>Figure</u>(18): <u></u> </font></center> 
 
+**See you in the next part. Inshallah**
+
+# article quoute
+ > "المنازل العليا لا تُنال إلّا بالبلاء"
 
 
 
