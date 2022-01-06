@@ -50,7 +50,7 @@ Size: 109.80 KB (112440 bytes)
 
  Shows compilation Timestamp which can be changed. and Shows number of sections
 
-## DiE
+# DiE
 
 **open DiE to get more info about the sample**
 
@@ -196,7 +196,7 @@ Why searching for abnormal jumps? For many packers, the address to the location 
 being unpacked to is stored in a register (such as ecx), and that memory address is often in an entirely
 different section
 
-**I will write an article about “indicators of packed file”. Inshallah**
+**I will write an article about “indicators of packed file”. InshAllah**
 
 If we return to **start function** and search you will find it
 Here we see our abnormal jmp ecx:
