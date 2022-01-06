@@ -111,7 +111,7 @@ Strings are good indicators to know what this malware is trying to do on the sys
 To analyze the assemble code to know how to unpack and where to start the debugging
 Open it in IDA: It shows that is low number of functions which another indicator that is packed
 
-[![](/assets/images/MA/emotet-1/9.png)](/assets/images/MA/emotet-1/9.png)
+<center> [![](/assets/images/MA/emotet-1/9.png)](/assets/images/MA/emotet-1/9.png) </center>
 <center><font size="3"> <u>Figure</u>(9): <u></u> </font></center> 
 <br>
 
