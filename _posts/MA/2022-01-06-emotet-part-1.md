@@ -17,9 +17,11 @@ document files, or malicious link.
 
 #### Download the sample: [Here](https://app.any.run/tasks/f907a5b5-689a-472d-a2f7-1a2c4899fc96/)
 
-MD5 CA06ACD3E1CAB1691A7670A5F23BAEF4
-SHA1 2EA0262CD42378AD00462D080FF18BFE994BB8FC
-SHA256 3A9494F66BABC7DEB43F65F9F28C44BD9BD4B3237031D80314AE7EB3526A4D8F
+MD5: CA06ACD3E1CAB1691A7670A5F23BAEF4
+
+SHA1: 2EA0262CD42378AD00462D080FF18BFE994BB8FC
+
+SHA256: 3A9494F66BABC7DEB43F65F9F28C44BD9BD4B3237031D80314AE7EB3526A4D8F
 
 # virustotal [VT](https://www.virustotal.com/gui/search/CA06ACD3E1CAB1691A7670A5F23BAEF4)
 When scanning malware using VirusTotal website we can see that the malware is detected by 57
@@ -44,7 +46,7 @@ Size: 109.80 KB (112440 bytes)
  Shows compilation Timestamp which can be changed
  Shows number of sections
 
-# Open **DiE** to get more info
+## Open **DiE** to get more info about the sample
 
 [![](/assets/images/MA/emotet-1/4.png)](/assets/images/MA/emotet-1/4.png)
 <center><font size="3"> <u>Figure</u>(4): <u> </u> </font></center>
