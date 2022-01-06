@@ -16,6 +16,7 @@ spread through spam emails. The infection may arrive either via malicious script
 document files, or malicious link.
 
 #### Download the sample: [Here](https://app.any.run/tasks/f907a5b5-689a-472d-a2f7-1a2c4899fc96/)
+
 MD5: CA06ACD3E1CAB1691A7670A5F23BAEF4
 SHA1: 2EA0262CD42378AD00462D080FF18BFE994BB8FC
 SHA256: 3A9494F66BABC7DEB43F65F9F28C44BD9BD4B3237031D80314AE7EB3526A4D8F
@@ -24,14 +25,14 @@ SHA256: 3A9494F66BABC7DEB43F65F9F28C44BD9BD4B3237031D80314AE7EB3526A4D8F
 When scanning malware using VirusTotal website we can see that the malware is detected by 57
 out of 68 security vendors as Wind32.trojan malware and we can see
 
-[![](/assets/images/MA/1.png)](/assets/images/MA/1.png)
+[![](/assets/images/MA/emotet-1/1.png)](/assets/images/MA/emotet-1/1.png)
 <center><font size="3"> <u>Figure</u>(1): <u>sub_6015C0 will be renamed to be mw_API_Resolver </u> </font></center> 
 
 Size: 109.80 KB (112440 bytes)
 
 In Details section
 1- Different names of the sample
-    ![This is an image](/assets/images/MA/2.png)
+    ![This is an image](/assets/images/MA/emotet-1/2.png)
 2- Header info
     ![This is an image](/assets/images/MA/3.png)
     Shows compilation Timestamp which can be changed
