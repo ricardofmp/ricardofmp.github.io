@@ -29,7 +29,9 @@ SHA256: 3A9494F66BABC7DEB43F65F9F28C44BD9BD4B3237031D80314AE7EB3526A4D8F
 When scanning malware using VirusTotal website we can see that the malware is detected by 57
 out of 68 security vendors as trojan malware and we can see
 
-[![](/assets/images/MA/emotet-1/1.png)](/assets/images/MA/emotet-1/1.png)
+<p align="center">
+  <img src="/assets/images/MA/emotet-1/1.png" />
+</p>
 <center><font size="3"> <u>Figure</u>(1): <u> </u> </font></center> 
 <br>
 
@@ -39,12 +41,15 @@ Size: 109.80 KB (112440 bytes)
 
  1- Different names of the sample
 
-[![](/assets/images/MA/emotet-1/2.png)](/assets/images/MA/emotet-1/2.png)
+<p align="center">
+  <img src="/assets/images/MA/emotet-1/2.png" />
+</p>
 <center><font size="3"> <u>Figure</u>(2): <u> </u> </font></center> 
 
  2- Header info
-
-[![](/assets/images/MA/emotet-1/4.png)](/assets/images/MA/emotet-1/4.png)
+<p align="center">
+  <img src="/assets/images/MA/emotet-1/3.png" />
+</p>
 <center><font size="3"> <u>Figure</u>(3): <u> </u> </font></center>
 <br>
 
@@ -54,7 +59,9 @@ Size: 109.80 KB (112440 bytes)
 
 **open DiE to get more info about the sample**
 
-[![](/assets/images/MA/emotet-1/4.png)](/assets/images/MA/emotet-1/4.png)
+<p align="center">
+  <img src="/assets/images/MA/emotet-1/4.png" />
+</p>
 <center><font size="3"> <u>Figure</u>(4): <u> </u> </font></center>
 <br>
 
@@ -64,7 +71,9 @@ As we see that info about **file type**, **Entry point**, and **sections**. It w
 
 **press over “Entropy” as in the previous figure(4)**
 
-[![](/assets/images/MA/emotet-1/5.png)](/assets/images/MA/emotet-1/5.png)
+<p align="center">
+  <img src="/assets/images/MA/emotet-1/5.png" />
+</p>
 <center><font size="3"> <u>Figure</u>(5): <u></u> </font></center> 
 <br>
 
@@ -74,7 +83,9 @@ Shows that it has **high** entropy in **.text** section which is an indicator to
 
 ## Indicators section:
 
-[![](/assets/images/MA/emotet-1/6.png)](/assets/images/MA/emotet-1/6.png)
+<p align="center">
+  <img src="/assets/images/MA/emotet-1/6.png" />
+</p>
 <center><font size="3"> <u>Figure</u>(6): <u></u> </font></center>
 <br>
 
@@ -83,7 +94,9 @@ Shows different malicious indicators that help us in the analysis
 
 ## Sections section:
 
-[![](/assets/images/MA/emotet-1/7.png)](/assets/images/MA/emotet-1/7.png)
+<p align="center">
+  <img src="/assets/images/MA/emotet-1/7.png" />
+</p>
 <center><font size="3"> <u>Figure</u>(7): <u></u> </font></center> 
 <br>
 
@@ -99,7 +112,9 @@ Shows different malicious indicators that help us in the analysis
 
 ## Strings section: *press over “blacklist” to list them
 
-[![](/assets/images/MA/emotet-1/8.png)](/assets/images/MA/emotet-1/8.png)
+<p align="center">
+  <img src="/assets/images/MA/emotet-1/8.png" />
+</p>
 <center><font size="3"> <u>Figure</u>(8): <u></u> </font></center> 
 <br>
 
@@ -119,7 +134,9 @@ Open it in IDA: It shows that is low number of functions which another indicator
 
 Press over “start” which located in the function as in the previous figure to get started
 
-[![](/assets/images/MA/emotet-1/10.png)](/assets/images/MA/emotet-1/10.png)
+<p align="center">
+  <img src="/assets/images/MA/emotet-1/10.png" />
+</p>
 <center><font size="3"> <u>Figure</u>(10): <u></u> </font></center> 
 <br>
 
@@ -131,30 +148,37 @@ for me and grab the next stage out of memory. **The process will need to allocat
 We need to search which function has VirtualAlloc call.
 If you searched you will find that **call sub_417D50** is the unpacking routine
 
-[![](/assets/images/MA/emotet-1/11.png)](/assets/images/MA/emotet-1/11.png)
+<p align="center">
+  <img src="/assets/images/MA/emotet-1/11.png" />
+</p>
 <center><font size="3"> <u>Figure</u>(11): <u></u> </font></center> 
 <br>
 
 
 This our unpacking function: **sub_417D50**
 
-[![](/assets/images/MA/emotet-1/12.png)](/assets/images/MA/emotet-1/12.png)
+<p align="center">
+  <img src="/assets/images/MA/emotet-1/12.png" />
+</p>
 <center><font size="3"> <u>Figure</u>(12): <u></u> </font></center> 
 
 
-## abnormal prologue
+## Abnormal prologue
 
 First we need to clear **what normal epilogue and prologue are?**
     The procedure prologue and epilogue are standard initialization sequences that compilers generate for almost all of their functions
 
-[![](/assets/images/MA/emotet-1/13.png)](/assets/images/MA/emotet-1/13.png)
+<p align="center">
+  <img src="/assets/images/MA/emotet-1/13.png" />
+</p>
 <center><font size="3"> <u>Figure</u>(13): <u></u> </font></center> 
 <br>
 
 
 What is **NOT normal** here is epilogue in the last figure:
-
-[![](/assets/images/MA/emotet-1/14.png)](/assets/images/MA/emotet-1/14.png)
+<p align="center">
+  <img src="/assets/images/MA/emotet-1/14.png" />
+</p>
 <center><font size="3"> <u>Figure</u>(14): <u></u> </font></center> 
 <br>
 
@@ -169,7 +193,9 @@ instruction- top of the stackAnd the real return is from this function loc_417D9
 
 We need to know what is happening in this function?
 
-[![](/assets/images/MA/emotet-1/15.png)](/assets/images/MA/emotet-1/15.png)
+<p align="center">
+  <img src="/assets/images/MA/emotet-1/15.png" />
+</p>
 <center><font size="3"> <u>Figure</u>(15): <u></u> </font></center> 
 <br>
 
@@ -184,7 +210,9 @@ We need to know what is happening in this function?
 
 So we need to know the address of this function to set a Breakpoint in x64dbg by pressing "space"
 
-[![](/assets/images/MA/emotet-1/16.png)](/assets/images/MA/emotet-1/16.png)
+<p align="center">
+  <img src="/assets/images/MA/emotet-1/16.png" />
+</p>
 <center><font size="3"> <u>Figure</u>(16): <u></u> </font></center> 
 <br>
 
@@ -203,20 +231,24 @@ different section
 If we return to **start function** and search you will find it
 Here we see our abnormal jmp ecx:
 
-[![](/assets/images/MA/emotet-1/17.png)](/assets/images/MA/emotet-1/17.png)
+<p align="center">
+  <img src="/assets/images/MA/emotet-1/17.png" />
+</p>
 <center><font size="3"> <u>Figure</u>(17): <u></u> </font></center> 
 <br>
 
 
 Press “space” to get its address: '00417F1F'
 
-[![](/assets/images/MA/emotet-1/18.png)](/assets/images/MA/emotet-1/18.png)
+<p align="center">
+  <img src="/assets/images/MA/emotet-1/18.png" />
+</p>
 <center><font size="3"> <u>Figure</u>(18): <u></u> </font></center> 
 <br>
 
 **How to Unpack in the next part. InshAllah**
 
-# article quoute
+# article quote
  > المنازل العليا لا تُنال إلّا بالبلاء
 
 
