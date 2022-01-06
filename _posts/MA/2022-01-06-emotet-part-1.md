@@ -114,8 +114,6 @@ Open it in IDA: It shows that is low number of functions which another indicator
 <p align="center">
   <img src="/assets/images/MA/emotet-1/9.png" />
 </p>
-
-[![](/assets/images/MA/emotet-1/9.png)](/assets/images/MA/emotet-1/9.png)
 <center><font size="3"> <u>Figure</u>(9): <u></u> </font></center> 
 <br>
 
