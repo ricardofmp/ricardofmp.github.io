@@ -11,7 +11,7 @@ toc: true
 
 **as salamu alaykum**
 
-<br>
+
 # Introduction
 Emotet is a Trojan available through a malware-as-a-service (MaaS) model that is primarily
 spread through spam emails. The infection may arrive either via malicious script, macro-enabled
@@ -207,10 +207,11 @@ Press “space” to get its address: '00417F1F'
 <center><font size="3"> <u>Figure</u>(18): <u></u> </font></center> 
 <br>
 
-**See you in the next part. Inshallah**
+**How to Unpack in the next part. InshAllah**
 
 # article quoute
- > "المنازل العليا لا تُنال إلّا بالبلاء"
+ > المنازل العليا لا تُنال إلّا بالبلاء
+
 
 
 
