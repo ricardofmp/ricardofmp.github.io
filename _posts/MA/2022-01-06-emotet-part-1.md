@@ -50,7 +50,9 @@ Size: 109.80 KB (112440 bytes)
 
  Shows compilation Timestamp which can be changed. and Shows number of sections
 
-## Open **DiE** to get more info about the sample
+## DiE
+ 
+**open DiE to get more info about the sample**
 
 [![](/assets/images/MA/emotet-1/4.png)](/assets/images/MA/emotet-1/4.png)
 <center><font size="3"> <u>Figure</u>(4): <u> </u> </font></center>
