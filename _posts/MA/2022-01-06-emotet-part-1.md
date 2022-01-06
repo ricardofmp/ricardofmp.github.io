@@ -58,7 +58,10 @@ Size: 109.80 KB (112440 bytes)
 
 As we see that info about **file type**, **Entry point**, and **sections**. It will help us in our analysis
 
-## Entropy: press over “Entropy” as in the previous figure(4) 
+## Entropy:
+
+**press over “Entropy” as in the previous figure(4)**
+
 [![](/assets/images/MA/emotet-1/5.png)](/assets/images/MA/emotet-1/5.png)
 <center><font size="3"> <u>Figure</u>(5): <u></u> </font></center> 
 <br>
