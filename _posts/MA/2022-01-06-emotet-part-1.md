@@ -32,7 +32,7 @@ out of 68 security vendors as trojan malware and we can see
 
 Size: 109.80 KB (112440 bytes)
 
-In Details section [VT Details](https://www.virustotal.com/gui/file/3a9494f66babc7deb43f65f9f28c44bd9bd4b3237031d80314ae7eb3526a4d8f/details)
+## In Details section [VT Details](https://www.virustotal.com/gui/file/3a9494f66babc7deb43f65f9f28c44bd9bd4b3237031d80314ae7eb3526a4d8f/details)
 
  1- Different names of the sample
 
@@ -52,7 +52,7 @@ In Details section [VT Details](https://www.virustotal.com/gui/file/3a9494f66bab
 [![](/assets/images/MA/emotet-1/4.png)](/assets/images/MA/emotet-1/4.png)
 <center><font size="3"> <u>Figure</u>(4): <u> </u> </font></center>
 
- As we see that info about **file type**, **Entry point**, and **sections**. It will help us in our analysis
+As we see that info about **file type**, **Entry point**, and **sections**. It will help us in our analysis
 
 ## Entropy: press over “Entropy” as in the previous figure
 [![](/assets/images/MA/emotet-1/5.png)](/assets/images/MA/emotet-1/5.png)
