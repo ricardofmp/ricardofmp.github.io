@@ -8,7 +8,9 @@ categories:
   - Malware-Analysis
 toc: true
 ---
-as salamu alaykum
+
+**as salamu alaykum**
+
 <br>
 # Introduction
 Emotet is a Trojan available through a malware-as-a-service (MaaS) model that is primarily
@@ -44,22 +46,22 @@ Size: 109.80 KB (112440 bytes)
 
 [![](/assets/images/MA/emotet-1/4.png)](/assets/images/MA/emotet-1/4.png)
 <center><font size="3"> <u>Figure</u>(3): <u> </u> </font></center>
+<br>
 
- Shows compilation Timestamp which can be changed
- Shows number of sections
+ Shows compilation Timestamp which can be changed. and Shows number of sections
 
 ## Open **DiE** to get more info about the sample
 
 [![](/assets/images/MA/emotet-1/4.png)](/assets/images/MA/emotet-1/4.png)
 <center><font size="3"> <u>Figure</u>(4): <u> </u> </font></center>
-
+<br>
 
 As we see that info about **file type**, **Entry point**, and **sections**. It will help us in our analysis
 
 ## Entropy: press over “Entropy” as in the previous figure(4) 
 [![](/assets/images/MA/emotet-1/5.png)](/assets/images/MA/emotet-1/5.png)
 <center><font size="3"> <u>Figure</u>(5): <u></u> </font></center> 
-
+<br>
 
 Shows that it has **high** entropy in **.text** section which is an indicator to be packed
 
@@ -69,6 +71,7 @@ Shows that it has **high** entropy in **.text** section which is an indicator to
 
 [![](/assets/images/MA/emotet-1/6.png)](/assets/images/MA/emotet-1/6.png)
 <center><font size="3"> <u>Figure</u>(6): <u></u> </font></center>
+<br>
 
 *Level 1 is most malicious and bigger numbers “3” are less malicious
 Shows different malicious indicators that help us in the analysis
@@ -77,6 +80,7 @@ Shows different malicious indicators that help us in the analysis
 
 [![](/assets/images/MA/emotet-1/7.png)](/assets/images/MA/emotet-1/7.png)
 <center><font size="3"> <u>Figure</u>(7): <u></u> </font></center> 
+<br>
 
 **The previous figure shows:**
 
@@ -92,6 +96,7 @@ Shows different malicious indicators that help us in the analysis
 
 [![](/assets/images/MA/emotet-1/8.png)](/assets/images/MA/emotet-1/8.png)
 <center><font size="3"> <u>Figure</u>(8): <u></u> </font></center> 
+<br>
 
 
 Strings are good indicators to know what this malware is trying to do on the system
@@ -103,11 +108,13 @@ Open it in IDA: It shows that is low number of functions which another indicator
 
 [![](/assets/images/MA/emotet-1/9.png)](/assets/images/MA/emotet-1/9.png)
 <center><font size="3"> <u>Figure</u>(9): <u></u> </font></center> 
+<br>
 
 Press over “start” which located in the function as in the previous figure to get started
 
 [![](/assets/images/MA/emotet-1/10.png)](/assets/images/MA/emotet-1/10.png)
 <center><font size="3"> <u>Figure</u>(10): <u></u> </font></center> 
+<br>
 
 
 This sample of Emotet uses a customized packer. Instead of trying to reverse the algorithm to
@@ -119,6 +126,7 @@ If you searched you will find that **call sub_417D50** is the unpacking routine
 
 [![](/assets/images/MA/emotet-1/11.png)](/assets/images/MA/emotet-1/11.png)
 <center><font size="3"> <u>Figure</u>(11): <u></u> </font></center> 
+<br>
 
 
 This our unpacking function: **sub_417D50**
@@ -134,12 +142,14 @@ First we need to clear **what normal epilogue and prologue are?**
 
 [![](/assets/images/MA/emotet-1/13.png)](/assets/images/MA/emotet-1/13.png)
 <center><font size="3"> <u>Figure</u>(13): <u></u> </font></center> 
+<br>
 
 
 What is **NOT normal** here is epilogue in the last figure:
 
 [![](/assets/images/MA/emotet-1/14.png)](/assets/images/MA/emotet-1/14.png)
 <center><font size="3"> <u>Figure</u>(14): <u></u> </font></center> 
+<br>
 
 
 you don't push anything before ret this called abnormal.
@@ -154,6 +164,7 @@ We need to know what is happening in this function?
 
 [![](/assets/images/MA/emotet-1/15.png)](/assets/images/MA/emotet-1/15.png)
 <center><font size="3"> <u>Figure</u>(15): <u></u> </font></center> 
+<br>
 
 
 **In the last figure we see the coming:**
@@ -168,6 +179,7 @@ So we need to know the address of this function to set a Breakpoint in x64dbg by
 
 [![](/assets/images/MA/emotet-1/16.png)](/assets/images/MA/emotet-1/16.png)
 <center><font size="3"> <u>Figure</u>(16): <u></u> </font></center> 
+<br>
 
 
 We know that code is packed. **We search for abnormal jumps:**
@@ -186,12 +198,14 @@ Here we see our abnormal jmp ecx:
 
 [![](/assets/images/MA/emotet-1/17.png)](/assets/images/MA/emotet-1/17.png)
 <center><font size="3"> <u>Figure</u>(17): <u></u> </font></center> 
+<br>
 
 
 Press “space” to get its address: '00417F1F'
 
 [![](/assets/images/MA/emotet-1/18.png)](/assets/images/MA/emotet-1/18.png)
 <center><font size="3"> <u>Figure</u>(18): <u></u> </font></center> 
+<br>
 
 **See you in the next part. Inshallah**
 
