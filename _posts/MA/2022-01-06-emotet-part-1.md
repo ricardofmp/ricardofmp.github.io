@@ -24,7 +24,7 @@ When scanning malware using VirusTotal website we can see that the malware is de
 out of 68 security vendors as Wind32.trojan malware and we can see
 
 <p align="center">
-<img src="/assets/images/MA/1.png">
+<img src="https://github.com/muha2xmad/muha2xmad.github.io/blob/main/assets/images/MA/emotet-1/1.png">
 </p>
 
 
