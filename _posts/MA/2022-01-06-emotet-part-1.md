@@ -38,8 +38,8 @@ In Details section
 
 2- Header info
 
-    [![](/assets/images/MA/emotet-1/3.png)](/assets/images/MA/emotet-1/3.png)
-    <center><font size="3"> <u>Figure</u>(3): <u> </u> </font></center> 
+[![](/assets/images/MA/emotet-1/4.png)](/assets/images/MA/emotet-1/4.png)
+<center><font size="3"> <u>Figure</u>(3): <u> </u> </font></center>
 
     Shows compilation Timestamp which can be changed
     Shows number of sections
@@ -62,27 +62,30 @@ Shows that it has **high** entropy in **.text** section which is an indicator to
 ## Indicators section:
 
 [![](/assets/images/MA/emotet-1/6.png)](/assets/images/MA/emotet-1/6.png)
-<center><font size="3"> <u>Figure</u>(1): <u></u> </font></center>
+<center><font size="3"> <u>Figure</u>(6): <u></u> </font></center>
 
- *Level 1 is most malicious and bigger numbers “3” are less malicious
+*Level 1 is most malicious and bigger numbers “3” are less malicious
 Shows different malicious indicators that help us in the analysis
 
 ##  Sections section:
 
 [![](/assets/images/MA/emotet-1/7.png)](/assets/images/MA/emotet-1/7.png)
-<center><font size="3"> <u>Figure</u>(7): <u>sub_6015C0 will be renamed to be mw_API_Resolver </u> </font></center> 
+<center><font size="3"> <u>Figure</u>(7): <u></u> </font></center> 
+
 **The previous figure shows:**
-    1- .text section is packed
-    2- .text section contains the entry point for the executable. This means that, in addition to
+    1-.text section is packed
+    2-.text section contains the entry point for the executable. This means that, in addition to
         holding the compressed data, .text section also contains the stub code responsible for
         unpacking.
         *The section which is responsible for unpacking can vary as in UPX packing
-    3- .text section is executable
-    4- .data section is writable
+    3-.text section is executable
+    4-.data section is writable
 
 ## Strings section: *press over “blacklist” to list them 
 [![](/assets/images/MA/emotet-1/8.png)](/assets/images/MA/emotet-1/8.png)
-<center><font size="3"> <u>Figure</u>(8): <u>sub_6015C0 will be renamed to be mw_API_Resolver </u> </font></center> Strings are good indicators to know what this malware is trying to do on the system
+<center><font size="3"> <u>Figure</u>(8): <u></u> </font></center> 
+
+Strings are good indicators to know what this malware is trying to do on the system
 
 # IDA analysis
 
@@ -116,7 +119,7 @@ The procedure prologue and epilogue are standard initialization sequences that c
 generate for almost all of their functions
 
 [![](/assets/images/MA/emotet-1/13.png)](/assets/images/MA/emotet-1/13.png)
-<center><font size="3"> <u>Figure</u>(13): <u> </u> </font></center> 
+<center><font size="3"> <u>Figure</u>(13): <u></u> </font></center> 
 
 What is **NOT normal** here is epilogue in the last figure:
 
@@ -167,7 +170,7 @@ Here we see our abnormal jmp ecx:
 Press “space” to get its address: '00417F1F'
 
 [![](/assets/images/MA/emotet-1/18.png)](/assets/images/MA/emotet-1/18.png)
-<center><font size="3"> <u>Figure</u>(18): <u> </u> </font></center> 
+<center><font size="3"> <u>Figure</u>(18): <u></u> </font></center> 
 
 
 
