@@ -10,22 +10,22 @@
 # Review documentation to determine if you should use `theme` or `remote_theme`
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
-theme                  : "minimal-mistakes-jekyll"
+#theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "MalGamy"
+title                    : "muha2xmad"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Gameel Ali"
-description              : "Malware Analysis - Reverse Engineering"
+name                     : "Muhammad Hasan Ali"
+description              : "Blue team advetures "
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : /img/cover.jpg  # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : /assets/images/site_data/logo.png # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 170
@@ -63,7 +63,7 @@ google:
   search_engine_id       : # YOUR_SEARCH_ENGINE_ID
   instant_search         : # false (default), true
 # SEO Related
-google_site_verification : "J3MnMF94zaZhTUoNtUiRt9cKsr7hiMyTxEdAvQ3GfmY"
+#google_site_verification : ""
 bing_site_verification   :
 yandex_site_verification :
 naver_site_verification  :
@@ -87,36 +87,36 @@ social:
 analytics:
   provider               : "google-universal" # false (default), "google", "google-universal", "custom"
   google:
-    tracking_id          : "UA-165194559-1"
+    #tracking_id          : ""
     anonymize_ip         : # true, false (default)
 
 
 # Site Author
 author:
-  name             : "Gameel Ali"
-  avatar           : /img/cover.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Malware analysis & Reverse engineering"
-
+  name             : "Muhammad Hasan Ali"
+  avatar           : /assets/images/site_data/avatar.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "Undergraduate Malware Analysis"
+  location         : "Egypt"
   email            :
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "gameelaa29@gmail.com"
+      #url: ""
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/GameelA63457659"
+      #url: ""
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url: "https://facebook.com/"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/gameel-ali-8041161bb/"
+      url: "https://www.linkedin.com/in/muhammadhasanali/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/MalGamy"
+      #url: ""
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
