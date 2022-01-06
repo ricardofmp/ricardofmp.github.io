@@ -2,7 +2,7 @@
 title: Emotet Malware 0x01
 classes: wide
 header:
-  teaser: /assets/images/MA/emotet-1.jpg
+  teaser: /assets/images/MA/emotet-1/emotet-1.jpg
 ribbon: MidnightBlue
 categories:
   - Malware-Analysis
