@@ -44,4 +44,8 @@ Shows that it has **high** entropy in **.text** section which is an indicator to
 
 # PEstudio analysis
 
+## Indicators section:
+![This is an image](/assets/images/MA/6.png)
+
+
 
