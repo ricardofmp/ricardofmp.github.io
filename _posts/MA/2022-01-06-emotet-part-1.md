@@ -32,7 +32,8 @@ out of 68 security vendors as trojan malware and we can see
 
 Size: 109.80 KB (112440 bytes)
 
-- In Details section
+In Details section [VT Details](https://www.virustotal.com/gui/file/3a9494f66babc7deb43f65f9f28c44bd9bd4b3237031d80314ae7eb3526a4d8f/details)
+
  1- Different names of the sample
 
 [![](/assets/images/MA/emotet-1/2.png)](/assets/images/MA/emotet-1/2.png)
