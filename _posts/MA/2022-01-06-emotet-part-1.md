@@ -1,5 +1,5 @@
 ---
-title: Emotet Malware 0x01
+title: Emotet Malware ananlysis part 01
 classes: wide
 header:
   teaser: /assets/images/MA/emotet-1/emotet-1.jpg
