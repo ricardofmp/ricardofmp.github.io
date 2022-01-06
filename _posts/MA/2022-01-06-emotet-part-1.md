@@ -52,11 +52,13 @@ Size: 109.80 KB (112440 bytes)
 [![](/assets/images/MA/emotet-1/4.png)](/assets/images/MA/emotet-1/4.png)
 <center><font size="3"> <u>Figure</u>(4): <u> </u> </font></center>
 
+
 As we see that info about **file type**, **Entry point**, and **sections**. It will help us in our analysis
 
-## Entropy: press over “Entropy” as in the previous figure
+## Entropy: press over “Entropy” as in the previous figure(4) 
 [![](/assets/images/MA/emotet-1/5.png)](/assets/images/MA/emotet-1/5.png)
 <center><font size="3"> <u>Figure</u>(5): <u></u> </font></center> 
+
 
 Shows that it has **high** entropy in **.text** section which is an indicator to be packed
 
@@ -76,13 +78,14 @@ Shows different malicious indicators that help us in the analysis
 <center><font size="3"> <u>Figure</u>(7): <u></u> </font></center> 
 
 **The previous figure shows:**
-    1-.text section is packed
+
+    1-.text section is packed <br>
     2-.text section contains the entry point for the executable. This means that, in addition to
         holding the compressed data, .text section also contains the stub code responsible for
         unpacking.
-        *The section which is responsible for unpacking can vary as in UPX packing
-    3-.text section is executable
-    4-.data section is writable
+        *The section which is responsible for unpacking can vary as in UPX packing <br>
+    3-.text section is executable <br>
+    4-.data section is writable <br>
 
 ## Strings section: *press over “blacklist” to list them 
 [![](/assets/images/MA/emotet-1/8.png)](/assets/images/MA/emotet-1/8.png)
