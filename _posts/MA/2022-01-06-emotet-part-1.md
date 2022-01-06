@@ -22,7 +22,11 @@ SHA256: 3A9494F66BABC7DEB43F65F9F28C44BD9BD4B3237031D80314AE7EB3526A4D8F
 # virustotal
 When scanning malware using VirusTotal website we can see that the malware is detected by 57
 out of 68 security vendors as Wind32.trojan malware and we can see
-![This is an image](/assets/images/MA/1.png)
+
+<p align="center">
+<img src="/assets/images/MA/1.png">
+</p>
+
 
 Size: 109.80 KB (112440 bytes)
 
