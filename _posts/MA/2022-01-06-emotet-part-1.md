@@ -9,7 +9,7 @@ categories:
 toc: true
 ---
 as salamu alaykum
-
+<br>
 # Introduction
 Emotet is a Trojan available through a malware-as-a-service (MaaS) model that is primarily
 spread through spam emails. The infection may arrive either via malicious script, macro-enabled
@@ -29,6 +29,7 @@ out of 68 security vendors as trojan malware and we can see
 
 [![](/assets/images/MA/emotet-1/1.png)](/assets/images/MA/emotet-1/1.png)
 <center><font size="3"> <u>Figure</u>(1): <u> </u> </font></center> 
+<br>
 
 Size: 109.80 KB (112440 bytes)
 
@@ -125,6 +126,8 @@ This our unpacking function: **sub_417D50**
 [![](/assets/images/MA/emotet-1/12.png)](/assets/images/MA/emotet-1/12.png)
 <center><font size="3"> <u>Figure</u>(12): <u></u> </font></center> 
 
+
+## abnormal prologue
 
 First we need to clear **what normal epilogue and prologue are?**
     The procedure prologue and epilogue are standard initialization sequences that compilers generate for almost all of their functions
