@@ -101,15 +101,15 @@ Shows that it has **high** entropy in **.text** section which is an indicator to
 
 **The previous figure shows:**
 
-  1-.text section is packed 
+  1- .text section is packed 
 
-  2-.text section contains the entry point for the executable. This means that, in addition to holding the compressed data, .text section also contains the stub code responsible for unpacking. [2](https://malware.news/t/the-basics-of-packed-malware-manually-unpacking-upx-executables/35961)
+  2- .text section contains the entry point for the executable. This means that, in addition to holding the compressed data, .text section also contains the stub code responsible for unpacking. [2](https://malware.news/t/the-basics-of-packed-malware-manually-unpacking-upx-executables/35961)
 
   *The section which is responsible for unpacking can vary as in UPX packing 
 
-  3-.text section is executable 
+  3- .text section is executable 
 
-  4-.data section is writable 
+  4- .data section is writable 
 
 ## Strings section:
 
