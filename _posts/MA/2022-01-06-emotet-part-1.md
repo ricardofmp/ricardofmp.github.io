@@ -113,7 +113,7 @@ Shows that it has **high** entropy in **.text** section which is an indicator to
 
 ## Strings section:
 
-**press over “blacklist” to list them**
+**press over `blacklist` to list them**
 
 <p align="center">
   <img src="/assets/images/MA/emotet-1/8.png" />
@@ -145,7 +145,7 @@ Press over “start” which located in the function as in the previous figure t
 <br>
 
 
-Because Emotet malware uses a customized packer. we can try to unpack it through **dynamic analysis**. Through **dynamic analysis**the malware does the unpacking process. **The process will need to allocate memory for the next stage**.
+Because Emotet malware uses a customized packer. we can try to unpack it through **dynamic analysis**. Through **dynamic analysis** the malware does the unpacking process. **The process will need to allocate memory for the next stage**.
 
 So it’s a good assumption that we will see a **call to VirtualAlloc**. We need to search which function has VirtualAlloc call. [3](https://distributedcompute.com/2020/02/20/unpacking-emotet/)
 
