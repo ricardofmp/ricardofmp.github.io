@@ -148,6 +148,7 @@ unpack the next stage, we can use **dynamic analysis**. We will let the malware 
 for me and grab the next stage out of memory. **The process will need to allocate memory for**
 **the next stage**. so it’s a good assumption that we will see a **call to VirtualAlloc**.
 We need to search which function has VirtualAlloc call.
+
 If you searched you will find that **call sub_417D50** is the unpacking routine
 
 <p align="center">
