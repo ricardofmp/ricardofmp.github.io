@@ -251,6 +251,8 @@ Press “space” to get its address: '00417F1F'
 
 **How to Unpack in the next part. InshAllah**
 
+edit: [part 02](https://muha2xmad.github.io/malware-analysis/emotet-part-2/)
+
 # article quote
  > المنازل العليا لا تُنال إلّا بالبلاء
 
