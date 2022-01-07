@@ -250,7 +250,7 @@ Press `space` to get its address: `00417F1F`.
 
 **How to Unpack in the next part. InshAllah**
 
-edit: [part 02](https://muha2xmad.github.io/malware-analysis/emotet-part-2/)
+**edit:** [part 02](https://muha2xmad.github.io/malware-analysis/emotet-part-2/)
 
 
 # article quote
@@ -259,13 +259,13 @@ edit: [part 02](https://muha2xmad.github.io/malware-analysis/emotet-part-2/)
 
 # References
 
-Inspired by: https://malgamy.github.io/malware-analysis/Emotet-Malware-0x01/
+Inspired by: [https://malgamy.github.io/malware-analysis/Emotet-Malware-0x01/](https://malgamy.github.io/malware-analysis/Emotet-Malware-0x01/)
 
-1- https://www.darkreading.com/edge-articles/emotet-101-how-the-ransomware-works----and-why-it-s-so-darn-effective
+1- [https://www.darkreading.com/edge-articles/emotet-101-how-the-ransomware-works----and-why-it-s-so-darn-effective](https://www.darkreading.com/edge-articles/emotet-101-how-the-ransomware-works----and-why-it-s-so-darn-effective)
 
-2- https://malware.news/t/the-basics-of-packed-malware-manually-unpacking-upx-executables/35961
+2- [https://malware.news/t/the-basics-of-packed-malware-manually-unpacking-upx-executables/35961](https://malware.news/t/the-basics-of-packed-malware-manually-unpacking-upx-executables/35961)
 
-3- https://distributedcompute.com/2020/02/20/unpacking-emotet/
+3- [https://distributedcompute.com/2020/02/20/unpacking-emotet/](https://distributedcompute.com/2020/02/20/unpacking-emotet/)
  
 
 
