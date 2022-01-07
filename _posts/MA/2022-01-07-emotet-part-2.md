@@ -1,5 +1,5 @@
 ---
-title: Emotet Malware ananlysis part 02
+title: Unpacking Emotet malware part 02
 classes: wide
 header:
   teaser: /assets/images/MA/emotet-2/emotet-2.jpg
