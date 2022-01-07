@@ -39,21 +39,21 @@ Size: 109.80 KB (112440 bytes)
 
 ## In Details section [VT Details](https://www.virustotal.com/gui/file/3a9494f66babc7deb43f65f9f28c44bd9bd4b3237031d80314ae7eb3526a4d8f/details)
 
- 1- Different names of the sample
+1- Different names of the sample
 
 <p align="center">
   <img src="/assets/images/MA/emotet-1/2.png" />
 </p>
 <center><font size="3"> <u>Figure</u>(2): <u> </u> </font></center> 
 
- 2- Header info
+2- Header info
 <p align="center">
   <img src="/assets/images/MA/emotet-1/3.png" />
 </p>
 <center><font size="3"> <u>Figure</u>(3): <u> </u> </font></center>
 <br>
 
- Shows compilation Timestamp which can be changed. and Shows number of sections
+Shows compilation Timestamp which can be changed. and Shows number of sections
 
 # DiE
 
@@ -89,8 +89,7 @@ Shows that it has **high** entropy in **.text** section which is an indicator to
 <center><font size="3"> <u>Figure</u>(6): <u></u> </font></center>
 <br>
 
-*Level 1 is most malicious and bigger numbers “3” are less malicious
-Shows different malicious indicators that help us in the analysis
+*Level 1 is most malicious and bigger numbers “3” are less malicious. Shows different malicious indicators that help us in the analysis.
 
 ## Sections section:
 
@@ -103,10 +102,13 @@ Shows different malicious indicators that help us in the analysis
 **The previous figure shows:**
 
   1-.text section is packed 
-  2-.text section contains the entry point for the executable. This means that, in addition to holding the compressed data, .text section also contains the stub code responsible for unpacking.[2](https://malware.news/t/the-basics-of-packed-malware-manually-unpacking-upx-executables/35961)
+
+  2-.text section contains the entry point for the executable. This means that, in addition to holding the compressed data, .text section also contains the stub code responsible for unpacking. [2](https://malware.news/t/the-basics-of-packed-malware-manually-unpacking-upx-executables/35961)
 
   *The section which is responsible for unpacking can vary as in UPX packing 
+
   3-.text section is executable 
+
   4-.data section is writable 
 
 ## Strings section:
@@ -125,6 +127,7 @@ Strings are good indicators to know what this malware is trying to do on the sys
 # IDA analysis
 
 To analyze the assemble code to know how to unpack and where to start the debugging
+
 Open it in IDA: It shows that is low number of functions which another indicator that is packed
 
 <p align="center">
@@ -146,7 +149,7 @@ Because Emotet malware uses a customized packer. we can try to unpack it through
 
 So it’s a good assumption that we will see a **call to VirtualAlloc**. We need to search which function has VirtualAlloc call. [3](https://distributedcompute.com/2020/02/20/unpacking-emotet/)
 
-If you searched you will find that **call sub_417D50** is the unpacking routine
+If you searched you will find that **call `sub_417D50`** is the unpacking routine
 
 <p align="center">
   <img src="/assets/images/MA/emotet-1/11.png" />
@@ -155,7 +158,7 @@ If you searched you will find that **call sub_417D50** is the unpacking routine
 <br>
 
 
-This our unpacking function: **sub_417D50**
+This our unpacking function: **`sub_417D50`**
 
 <p align="center">
   <img src="/assets/images/MA/emotet-1/12.png" />
@@ -166,7 +169,7 @@ This our unpacking function: **sub_417D50**
 ## Abnormal prologue
 
 First we need to clear **what normal epilogue and prologue are?**
-  The procedure prologue and epilogue are standard initialization sequences that compilers generate for almost all of their functions.
+ The procedure prologue and epilogue are standard initialization sequences that compilers generate for almost all of their functions.
 
 <p align="center">
   <img src="/assets/images/MA/emotet-1/13.png" />
@@ -176,6 +179,7 @@ First we need to clear **what normal epilogue and prologue are?**
 
 
 What is **NOT normal** here is epilogue in the last figure:
+
 <p align="center">
   <img src="/assets/images/MA/emotet-1/14.png" />
 </p>
@@ -184,6 +188,7 @@ What is **NOT normal** here is epilogue in the last figure:
 
 
 you don't `push` anything before `ret` this called abnormal.
+
 normal epilogue is to `pop EBP` before `ret`. Here it will return `ecx` because it executes the last instruction- top of the stack.
 
 And the real return is from this function `loc_417D9A` because this is 2nd top of the stack.
@@ -205,7 +210,7 @@ We need to know what is happening in this function?
   then `push ECX` and then `ret`
   And the real return is from this function `loc_417D9A`
 
-So we need to know the address of this function to set a Breakpoint in x64dbg by pressing `space`
+So we need to know the address of this function to set a Breakpoint in x64dbg by pressing `space`.
 
 <p align="center">
   <img src="/assets/images/MA/emotet-1/16.png" />
@@ -217,14 +222,16 @@ So we need to know the address of this function to set a Breakpoint in x64dbg by
 We know that code is packed. **We search for abnormal jumps:**
 
   jump or call Instructions to registers
+
   Jump to strange memory addresses (long jump)
 
 Why searching for abnormal jumps? the address to the location of where data is being unpacked to is stored in a register (such as ecx), and that memory address is often in an entirely different section.
 
 **I will write an article about “indicators of packed file”. InshAllah**
 
-If we return to **start function** and search you will find it
-Here we see our abnormal jmp ecx:
+If we return to **start function** and search you will find it.
+
+Here we see our abnormal `jmp ecx`:
 
 <p align="center">
   <img src="/assets/images/MA/emotet-1/17.png" />
@@ -233,7 +240,7 @@ Here we see our abnormal jmp ecx:
 <br>
 
 
-Press “space” to get its address: '00417F1F'
+Press `space` to get its address: `00417F1F`.
 
 <p align="center">
   <img src="/assets/images/MA/emotet-1/18.png" />
