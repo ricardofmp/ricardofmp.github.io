@@ -203,7 +203,7 @@ After we get into the function we need to analyze it **carefully**
 
 As we can see `call edx` is calling `VirtualAlloc`:
 
-   `push 40` **RWX** which our indicator to know that this call could be `VirtuallAlloc`
+   `push 40` **RWX** which is our indicator to know that this call could be `VirtuallAlloc`
 
 <p align="center">
   <img src="/assets/images/MA/emotet-2/15.png" />
