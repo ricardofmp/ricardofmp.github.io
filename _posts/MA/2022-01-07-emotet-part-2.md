@@ -39,16 +39,16 @@ we will debug our sample with x32dbg tool to unpack the Emotet malware
 
 - We need to find the the original entry point (OEP).
  
- What is the OEP:  is the address of the malware's first instruction (where malicious code begins) before it was packed. [1](https://www.oreilly.com/library/view/learning-malware-analysis/9781788392501/12556df2-7825-4e43-8811-c0fabeab78d8.xhtml)
+ What is the OEP:  is the address of the malware's first instruction (where malicious code begins) before it was packed. [2](https://www.oreilly.com/library/view/learning-malware-analysis/9781788392501/12556df2-7825-4e43-8811-c0fabeab78d8.xhtml)
 
 - How to find the OEP: find the `tail jump`. the tail jump It’s an unconditional jump exists in the tail of stub code , it points to 
-address of unpack file. [2](https://www.0xbyte.com/unpacking-mzp-ransomware-manually/)
+address of unpack file. [3](https://www.0xbyte.com/unpacking-mzp-ransomware-manually/)
 
-How to the unpack happen? [2] (https://www.0xbyte.com/unpacking-mzp-ransomware-manually/)
+How to the unpack happen? [3] (https://www.0xbyte.com/unpacking-mzp-ransomware-manually/)
  As we see in the figure (1). 
  OS create stub code with packed file
 
-- What is stub code? [2](https://www.0xbyte.com/unpacking-mzp-ransomware-manually/)
+- What is stub code? [3](https://www.0xbyte.com/unpacking-mzp-ransomware-manually/)
   Stub code is responsible for unpacking packed sections, when you are running the file ,the address of unpack file exists in the stub code to unpack file. So at the end of the stub code we will see an unconditional jump (tail jump), that is meant after execute the stub code will jump to the address of unpacking file.
 
 
@@ -328,7 +328,18 @@ How we edit the section headers? ordered steps.
 
  > على الضفةِ الأخرى لن نخشى الغرق
 
+# Refernces
 
+1- [https://www.mcafee.com/blogs/enterprise/malware-packers-use-tricks-avoid-analysis-detection/](https://www.mcafee.com/blogs/enterprise/malware-packers-use-tricks-avoid-analysis-detection/)
+
+2-[https://www.oreilly.com/library/view/learning-malware-analysis/9781788392501/12556df2-7825-4e43-8811-c0fabeab78d8.xhtml](https://www.oreilly.com/library/view/learning-malware-analysis/9781788392501/12556df2-7825-4e43-8811-c0fabeab78d8.xhtml)
+
+3-  [https://www.0xbyte.com/unpacking-mzp-ransomware-manually/](https://www.0xbyte.com/unpacking-mzp-ransomware-manually/)
+
+4-  [https://isc.sans.edu/forums/diary/Stackstrings+type+2/26192/#:~:text=This%20is%20a%20technique%20that,the%20allocated%20chunk%20of%20memory](https://isc.sans.edu/forums/diary/Stackstrings+type+2/26192/#:~:text=This%20is%20a%20technique%20that,the%20allocated%20chunk%20of%20memory)
+
+
+5- [https://msdn.microsoft.com/en-us/library/windows/desktop/aa366887(v=vs.85).aspx](https://msdn.microsoft.com/en-us/library/windows/desktop/aa366887(v=vs.85).aspx)
 
 
 
