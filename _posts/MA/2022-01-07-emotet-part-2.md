@@ -258,6 +258,7 @@ Untill we get to the last `ret 8` as shown.
 
 Now we can dump the unpacked exe. `right click` over `eax` and press `Follow in Mwmory map`
 
+**Sorry for this Mistake in the next figure. It's `Follow in Mwmory map`**
 <p align="center">
   <img src="/assets/images/MA/emotet-2/21.png" />
 </p>
