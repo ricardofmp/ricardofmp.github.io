@@ -273,7 +273,7 @@ Then `right click` and then press `Dump memory to File`
 <center><font size="3"> <u>Figure</u>(22): <u></u> </font></center> 
 <br>
 
-Now if we tried to open it in IDA. **We will notice that's can't be analyze**
+Now if we tried to open it in IDA. **We will notice that's can't be analyzed**
 
 <p align="center">
   <img src="/assets/images/MA/emotet-2/23.png" />
@@ -310,12 +310,15 @@ How we edit the section headers? ordered steps.
  first: copy `Virtuall address` values into `Raw address` values.
 
  second: `Raw size` 
-    Raw size of `.test` = Raw adress of `.rdata` - Raw adress of `.text`  `E000` - `1000` = `D000`
-    Raw size of `.rdata` = Raw adress of `.data` - Raw adress of `.rdata` `F000` - `E000` = `1000`
-    Raw size of `.data` = Raw adress of `.reloc` - Raw adress of `.data`  `13000` - `F000` = `4000`
-    Raw size of `.reloc` = still the same 
+   Raw size of `.test` = Raw adress of `.rdata` - Raw adress of `.text`  `E000` - `1000` = `D000`
+
+   Raw size of `.rdata` = Raw adress of `.data` - Raw adress of `.rdata` `F000` - `E000` = `1000`
+
+   Raw size of `.data` = Raw adress of `.reloc` - Raw adress of `.data`  `13000` - `F000` = `4000`
+
+   Raw size of `.reloc` = still the same 
  third: 
-    copy `Raw size` values into `Virtual size` values.
+   copy `Raw size` values into `Virtual size` values.
 
 **After changing save the file**
 
