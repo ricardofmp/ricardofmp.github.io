@@ -6,6 +6,7 @@ header:
 ribbon: MidnightBlue
 categories:
   - Malware-Analysis
+  - Unpacking
 toc: true
 ---
 **as salamu alaykum**
