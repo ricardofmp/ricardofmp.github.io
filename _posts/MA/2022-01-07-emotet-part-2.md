@@ -311,11 +311,14 @@ How we edit the section headers? ordered steps.
  first: copy `Virtuall address` values into `Raw address` values.
 
  second: `Raw size` 
-   Raw size of `.test` = Raw adress of `.rdata` - Raw adress of `.text`  `E000` - `1000` = `D000`
+   Raw size of `.test` = Raw adress of `.rdata` - Raw adress of `.text` 
+    `E000` - `1000` = `D000`
 
-   Raw size of `.rdata` = Raw adress of `.data` - Raw adress of `.rdata` `F000` - `E000` = `1000`
+   Raw size of `.rdata` = Raw adress of `.data` - Raw adress of `.rdata` 
+   `F000` - `E000` = `1000`
 
-   Raw size of `.data` = Raw adress of `.reloc` - Raw adress of `.data`  `13000` - `F000` = `4000`
+   Raw size of `.data` = Raw adress of `.reloc` - Raw adress of `.data`  
+   `13000` - `F000` = `4000`
 
    Raw size of `.reloc` = still the same 
  third: 
