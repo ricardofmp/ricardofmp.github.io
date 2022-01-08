@@ -5,7 +5,7 @@ header:
   teaser: /assets/images/MA/emotet-2/emotet-2.jpg
 ribbon: MidnightBlue
 categories:
-  - Malware-Analysis
+  - Malware-analysis
   - Unpacking
 toc: true
 ---
