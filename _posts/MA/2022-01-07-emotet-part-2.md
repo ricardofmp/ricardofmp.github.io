@@ -304,6 +304,8 @@ Then change the image base: if it's different value of the OEP.
 <center><font size="3"> <u>Figure</u>(26): <u></u> </font></center> 
 <br>
 
+## Unmap the unpacked file
+
 How we edit the section headers? ordered steps.
  
  first: copy `Virtuall address` values into `Raw address` values.
