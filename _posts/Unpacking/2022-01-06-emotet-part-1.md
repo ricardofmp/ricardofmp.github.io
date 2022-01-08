@@ -6,7 +6,6 @@ header:
 ribbon: MidnightBlue
 categories:
   - Malware-analysis
-  - Unpacking
 toc: true
 ---
 
