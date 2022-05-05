@@ -1,5 +1,5 @@
 ---
-title: MS Word to drop Remcos RAT
+title: Analysis of MS Word to drop Remcos RAT
 classes: wide
 header:
   teaser: /assets/images/MA/remcosdoc/remdoc.jpg
