@@ -25,7 +25,7 @@ We will talk about basic structure of Word file. Microsoft suite comes in two tw
 # Metadata 
 using exiftool to extract metadata about the sample which we are analyzing and get more information about it such as `filesize`, `filetype`, `Language Code`, `Comp Obj User Type` which shows the eddition of used Microsoft word, and `Template`. If there is `Normal.dotm` which is an indicator of Macro inside the Doc file. 
 
->> Command: `exiftool 3bd5892cdc82dc4576eaf2735edb57182ae8b91c8067be305d4e801197d390cc.doc`
+`exiftool 3bd5892cdc82dc4576eaf2735edb57182ae8b91c8067be305d4e801197d390cc.doc`
 
 ```vb
 File Name                       : 3bd5892cdc82dc4576eaf2735edb57182ae8b91c8067be305d4e801197d390cc.doc
@@ -95,7 +95,7 @@ We Then use `oledump.py` to see the content of the Doc file. The number on the l
 
 We use `olevba` to extract Macros from the Doc file and analyze the `VBA` code. After extraction open the file in `VSCode`. We can use `oledump.py` to do this as well, but `olevba` summerize the important info for us.
 
-Command: olevba 3bd5892cdc82dc4576eaf2735edb57182ae8b91c8067be305d4e801197d390cc.doc > vbacode.vba
+`olevba 3bd5892cdc82dc4576eaf2735edb57182ae8b91c8067be305d4e801197d390cc.doc > vbacode.vba`
 
 The most important is the table which summerize the VBA code and extracts the important code such as `IoCs` and suspicious functions such as `AutoOpen()`.
 <p align="center">
@@ -106,9 +106,9 @@ The most important is the table which summerize the VBA code and extracts the im
 
 But this is not enough. We will try to extract much info about the Doc by using `oledump.py` and extract the content of all the streams but if you want to short your time extract only the streams `9` and `10`. 
 
-command: 
-oledump.py 3bd5892cdc82dc4576eaf2735edb57182ae8b91c8067be305d4e801197d390cc.doc  -s 9 > stream_9.vba
-oledump.py 3bd5892cdc82dc4576eaf2735edb57182ae8b91c8067be305d4e801197d390cc.doc  -s 10 > stream_10.vba
+`oledump.py 3bd5892cdc82dc4576eaf2735edb57182ae8b91c8067be305d4e801197d390cc.doc  -s 9 > stream_9.vba`
+
+`oledump.py 3bd5892cdc82dc4576eaf2735edb57182ae8b91c8067be305d4e801197d390cc.doc  -s 10 > stream_10.vba`
 
 Take your time to analyze the `ASCII` to extract more info from the next two figures.
 In this figure, stream 9 IoCs which enables the Doc to launch the VBA code.

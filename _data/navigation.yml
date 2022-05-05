@@ -1,9 +1,13 @@
+# Edit tags from here
 # main links
+
 main:
   - title: "Malware analysis"
     url: /categories/#Malware-analysis
   - title: "Unpacking"
     url: /categories/#Unpacking
+  - title: "Mal Documents"
+    url: /categories/#Mal-Document
   #- title: "CTF Writeups"
     #url: /categories/#ctf-writeups
   #- title: "Tutorials"
