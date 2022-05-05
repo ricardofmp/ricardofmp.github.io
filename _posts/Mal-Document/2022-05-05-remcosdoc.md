@@ -126,7 +126,7 @@ InstallProduct
 <p align="center">
   <img src="/assets/images/MA/remcosdoc/4.png" />
 </p>
-<center><font size="3"> <u>Figure</u>(4): Extraction of the VBA code of stream 9 <u></u> </font></center>
+<center><font size="3"> <u>Figure</u>(4): Analysis of the VBA code of stream 9 <u></u> </font></center>
 <br>
 
 And in stream `10` which has less IoCs than stream `9`.
@@ -138,7 +138,7 @@ C:\Program files\Common files\Microsoft shared\OFFICE1.6\MSO.DLL
 <p align="center">
   <img src="/assets/images/MA/remcosdoc/5.png" />
 </p>
-<center><font size="3"> <u>Figure</u>(5): Extraction of the VBA code of stream 10 <u></u> </font></center>
+<center><font size="3"> <u>Figure</u>(5): Analysis of the VBA code of stream 10 <u></u> </font></center>
 <br>
 
 For more info you can use `lazy office analyzer` tool in Windows or open the malicious word and see the Macro inside the Microsoft word application. I tried to use it but in this sample gives no info.
