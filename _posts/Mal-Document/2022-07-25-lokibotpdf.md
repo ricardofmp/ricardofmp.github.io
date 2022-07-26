@@ -54,6 +54,7 @@ Suspecious keywords found when analyzing and their indications:
 A comment in PDF starts with %
 
 About objects:
+````cs
 
 obj 1 0: % first number is ID, second number is version
 
@@ -64,6 +65,7 @@ Referencing: 3 0 R % object 1 0 refernces to 3 0, R indicates of referencing
 ........ % content of the object
 
 endobj % the object ends with
+```
 
 For more info aboud PDF see [this](https://www.pdfprof.com/PDF_Image.php?idt=6197&t=41).
 
