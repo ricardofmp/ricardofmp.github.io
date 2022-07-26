@@ -88,7 +88,7 @@ pdf-parser.py:
 
  - Follow object referencing to find the goal.
 
-If you use peepdf.py and found that it has /EmbeddedFiles, starts with the object where is /EmbeddedFiles belongs.
+If you use peepdf.py and found that it has /EmbeddedFiles, start analyzing the object where is /EmbeddedFiles belongs to.
 
 If you find /FlateDecode, go and try to analyze it which decodes stream.
 
