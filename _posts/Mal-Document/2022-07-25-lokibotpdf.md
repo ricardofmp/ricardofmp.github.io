@@ -2,7 +2,7 @@
 title: Analysis of a PDF file downloads Lokibot 
 classes: wide
 header:
-  teaser: /assets/images/MA/lokibotpdf/remdoc.jpg
+  teaser: /assets/images/MA/lokibotpdf/loki.png
 ribbon: MidnightBlue
 categories:
   - Mal-Document
