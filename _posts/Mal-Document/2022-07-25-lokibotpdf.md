@@ -1,5 +1,5 @@
 ---
-title: PDF Analysis Lokibot malware
+title: PDF Analysis of Lokibot malware
 classes: wide
 header:
   teaser: /assets/images/MA/lokibotpdf/loki.png
