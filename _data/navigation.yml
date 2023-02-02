@@ -4,7 +4,7 @@
 main:
   - title: "threat intel"
     url: /categories/#Threat Intelligence
-  - title: "general"
+  - title: "pet projects"
     url: /categories/#Projects
   #- title: "CTF Writeups"
     #url: /categories/#ctf-writeups
