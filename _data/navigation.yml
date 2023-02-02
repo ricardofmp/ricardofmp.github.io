@@ -2,10 +2,10 @@
 # main links
 
 main:
-  - title: "whoami"
-    url: /categories/#whoami
   - title: "Threat Intel"
     url: /categories/#Threat Intelligence
+  #- title: "General"
+  #  url: /categories/#whoami
   #- title: "CTF Writeups"
     #url: /categories/#ctf-writeups
   #- title: "Tutorials"
