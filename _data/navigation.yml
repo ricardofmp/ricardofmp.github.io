@@ -3,11 +3,11 @@
 
 main:
   - title: "threat intel"
-    url: /categories/#Threat Intelligence
+    url: /categories/#Threat-Intelligence
+  - title: "malware analysis"
+    url: /categories/#Malware-Analysis
   - title: "pet projects"
     url: /categories/#Projects
-  #- title: "CTF Writeups"
-    #url: /categories/#ctf-writeups
   #- title: "Tutorials"
    # url: /categories/#tutorials
   #- title: "All Categories"
