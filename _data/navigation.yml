@@ -2,11 +2,11 @@
 # main links
 
 main:
-  - title: "terrible threat intel"
+  - title: "CTFs"
     url: /categories/#Threat-Intelligence
-  - title: "malware analysis"
+  - title: "android malware analysis"
     url: /categories/#Malware-Analysis
-  - title: "pet projects"
+  - title: "threat intel"
     url: /categories/#Projects
   #- title: "Tutorials"
    # url: /categories/#tutorials
