@@ -2,12 +2,8 @@
 # main links
 
 main:
-  - title: "CTFs"
-    url: /categories/#Threat-Intelligence
   - title: "android malware analysis"
     url: /categories/#Malware-Analysis
-  - title: "threat intel"
-    url: /categories/#Projects
   #- title: "Tutorials"
    # url: /categories/#tutorials
   #- title: "All Categories"
