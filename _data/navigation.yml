@@ -2,8 +2,8 @@
 # main links
 
 main:
-  - title: "android malware analysis"
-    url: /categories/#Malware-Analysis
+  #- title: "android malware analysis"
+   # url: /categories/#Malware-Analysis
   #- title: "Tutorials"
    # url: /categories/#tutorials
   #- title: "All Categories"
