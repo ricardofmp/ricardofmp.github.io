@@ -95,7 +95,7 @@ analytics:
 author:
   name             : "Ricardo M Pereira"
   avatar           : /assets/images/site/av.jfif # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Android RE rookie"
+  bio              : "Android Malware RE rookie"
   location         : "Portugal"
   email            :
   links:
