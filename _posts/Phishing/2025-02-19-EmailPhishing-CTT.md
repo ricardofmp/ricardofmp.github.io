@@ -1,8 +1,8 @@
 ---
-title: Email Phishing Analysis ("Speeding Ticket from AMA")
+title: Email Phishing Analysis - "CTT package"
 classes: wide
 header:
-  teaser: /assets/images/MA/EmailPhishing-SpeedingTicketfromAMA/phishing.png
+  teaser: /assets/images/MA/EmailPhishing-CTT/phishing.png
 ribbon: MidnightBlue
 categories:
   - Phishing-analysis
