@@ -29,7 +29,7 @@ The email contains some highly suspicious signals:
 - Weird text formatting, context errors and the usage of brazilian portuguese expressions such as “Carteira de condução”, instead of the correct european portuguese expression “Carta de condução”.
 - The typical sense of urgency that we are used to see in phishing emails, with the usage of expressions such as “regularize o pagamento o mais breve possível” ("Please settle the payment as soon as possible"), the payment due date set to the same day the email was sent
 - In case the recipient does not comply with the payment, the punishment is disproportional (50€ fee will become 620€ plus the subtraction of 3 points on the driving’s license).
-- And finally, the URL that allows the recipient to “pay the ticket”: hxxps[:]//uhu69cb8[.]s3.amazonaws[.]com/338[.]htm[l](https://uhu69cb8.s3.amazonaws.com/338.html)
+- And finally, the URL that allows the recipient to “pay the ticket”: hxxps[:]//uhu69cb8[.]s3.amazonaws[.]com/338[.]html
 
 Even though it is perfectly clear this is a phishing attempt by now, we can continue our search.
 
