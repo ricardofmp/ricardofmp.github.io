@@ -33,8 +33,6 @@ The email contains some highly suspicious signals:
 
 Even though it is perfectly clear this is a phishing attempt by now, we can continue our search.
 
-Starting on urlscan.io:
-
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-SpeedingTicketfromAMA\338html.png" />
 </p>
