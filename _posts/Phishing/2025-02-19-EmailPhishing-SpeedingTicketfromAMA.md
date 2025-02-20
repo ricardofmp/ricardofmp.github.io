@@ -21,7 +21,7 @@ Email phishing attempt, trying to lure portuguese victims into paying a “speed
 </p>
 <center><font size="3"> <u>Figure</u>(1): Phishing Email<u></u> </font></center>
 <br>
-The email was targeting a portuguese citizen, apparently coming directly from an official portuguese government agency (AMA - Agência para a Modernização Administrativa) who was recently victim to a [Ransomware attack] (https://www.itsecurity.pt/news/news/cncs-confirma-incidente-de-ransomware-nas-infraestruturas-da-ama).
+The email was targeting a portuguese citizen, apparently coming directly from an official portuguese government agency (AMA - Agência para a Modernização Administrativa) who was recently victim to a [Ransomware attack](https://www.itsecurity.pt/news/news/cncs-confirma-incidente-de-ransomware-nas-infraestruturas-da-ama).
 
 The email contains some highly suspicious signals:
 
