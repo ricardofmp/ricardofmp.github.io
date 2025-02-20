@@ -1,5 +1,5 @@
 ---
-title: Email Phishing - Speeding Ticket from AMA 
+title: Email Phishing Analysis ("Speeding Ticket from AMA")
 classes: wide
 header:
   teaser: /assets/images/MA/EmailPhishing-SpeedingTicketfromAMA\phishing.png
@@ -15,21 +15,19 @@ First posted in February 2025.
 Email phishing attempt, trying to lure portuguese victims into paying a “speed ticketing fee”. Indicators show that a campaign targeting french citizens is also ongoing.
 
 # Basic Email Analysis
-The application attempts to impersonate the Chrome web browser, as evident from its icon and name displayed in the menu.
 
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-SpeedingTicketfromAMA\Email.png" />
 </p>
 <center><font size="3"> <u>Figure</u>(1): Phishing Email<u></u> </font></center>
 <br>
-
 The email was targeting a portuguese citizen, apparently coming directly from an official portuguese government agency (AMA - Agência para a Modernização Administrativa) who was recently victim to a [Ransomware attack] (https://www.itsecurity.pt/news/news/cncs-confirma-incidente-de-ransomware-nas-infraestruturas-da-ama).
 
 The email contains some highly suspicious signals:
 
 - The email was sent from a **Universidade Estadual do Ceará** (Ceara’s State University) student account, which most likely has been previously compromised.
-- The weird text formatting, context errors and the usage of brazilian portuguese expressions such as “Carteira de condução”, instead of the correct european portuguese expression “Carta de condução”.
-- The typical sense of urgency that we are used to see in phishing emails, with the usage of expressions such as “regularize o pagamento o mais breve possível” (tradução aqui), the payment due date set to the same day the email was sent
+- Weird text formatting, context errors and the usage of brazilian portuguese expressions such as “Carteira de condução”, instead of the correct european portuguese expression “Carta de condução”.
+- The typical sense of urgency that we are used to see in phishing emails, with the usage of expressions such as “regularize o pagamento o mais breve possível” ("Please settle the payment as soon as possible"), the payment due date set to the same day the email was sent
 - In case the recipient does not comply with the payment, the punishment is disproportional (50€ fee will become 620€ plus the subtraction of 3 points on the driving’s license).
 - And finally, the URL that allows the recipient to “pay the ticket”: hxxps[:]//uhu69cb8[.]s3.amazonaws[.]com/338[.]htm[l](https://uhu69cb8.s3.amazonaws.com/338.html)
 
@@ -42,7 +40,6 @@ Starting on urlscan.io:
 </p>
 <center><font size="3"> <u>Figure</u>(2): "338.html" file<u></u> </font></center>
 <br>
-
 - The AWS S3 Bucket contains an html file with a Click Funnel URL “hxxps[:]//myworkspace1b443[.]myclickfunnels[.]com/skdfjhsqkfhsqdkfjhsd” that will be opened through a “meta refresh redirect”, which will again redirect the user to a (well made) phishing page that impersonates the portuguese authentication system, where users can access all their citizenship information.
     - It is worth notice the “pwd” param with the “Kad00z” value. If the value is incorrect, it will redirect to www.gov.pt, the official domain.
 
@@ -51,7 +48,6 @@ Starting on urlscan.io:
 </p>
 <center><font size="3"> <u>Figure</u>(3): Redirection chain, starting on the ClickFunnel URL<u></u> </font></center>
 <br>
-
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-SpeedingTicketfromAMA\PhishingPage1.png" />
 </p>
@@ -76,7 +72,6 @@ URLScan.io, however, gave us the opportunity to find another campaign (https://u
 </p>
 <center><font size="3"> <u>Figure</u>(5): Redirection chain, starting on the ClickFunnel URL<u></u> </font></center>
 <br>
-
 Both campaigns are using hxxps[:]//www[.]iphimedeia[.]com to host the malicious pages and files. It is unclear if the website belongs to a real “Iphimedeia” hotel (www.booking.com) and it was compromised for payload delivery, or if it was registered by the malicious actors as a façade. However, given the domain registered date, the first option seems more likely.
 
 <p align="center">
@@ -84,7 +79,6 @@ Both campaigns are using hxxps[:]//www[.]iphimedeia[.]com to host the malicious 
 </p>
 <center><font size="3"> <u>Figure</u>(6): Domain registration date<u></u> </font></center>
 <br>
-
 ## S3 Bucket
 
 It was also possible to discover another file in a different bucket ( https://**uhu87243.s3.amazonaws.com**/0246.html), redirecting to “hxxps[:]//**www[.]iphimedeia[.]com**/wp-content/languages/loco/themes/**pt**/govPT/Autenticacao/Continue/Login[.]php”.
@@ -94,7 +88,6 @@ It was also possible to discover another file in a different bucket ( https://*
 </p>
 <center><font size="3"> <u>Figure</u>(7): Redirection chain, starting on the ClickFunnel URL<u></u> </font></center>
 <br>
-
 The page looks exactly the same as the first one we have found.
 
 Using Burp Suite’s Intruder, we were not able to find any additional html file on those buckets.
