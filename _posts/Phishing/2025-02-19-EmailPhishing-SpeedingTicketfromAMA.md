@@ -70,7 +70,7 @@ URLScan.io, however, gave us the opportunity to find another campaign (https://u
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-SpeedingTicketfromAMA\PhishingPageFrench.png" />
 </p>
-<center><font size="3"> <u>Figure</u>(5): Redirection chain, starting on the ClickFunnel URL<u></u> </font></center>
+<center><font size="3"> <u>Figure</u>(5): "amendes.gouv.fr" impersonation<u></u> </font></center>
 <br>
 Both campaigns are using hxxps[:]//www[.]iphimedeia[.]com to host the malicious pages and files. It is unclear if the website belongs to a real “Iphimedeia” hotel (www.booking.com) and it was compromised for payload delivery, or if it was registered by the malicious actors as a façade. However, given the domain registered date, the first option seems more likely.
 
@@ -86,10 +86,8 @@ It was also possible to discover another file in a different bucket ( https://*
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-SpeedingTicketfromAMA\PhishingPage3.png" />
 </p>
-<center><font size="3"> <u>Figure</u>(7): Redirection chain, starting on the ClickFunnel URL<u></u> </font></center>
+<center><font size="3"> <u>Figure</u>(7): The page looks exactly the same as the first one we have found.<u></u> </font></center>
 <br>
-The page looks exactly the same as the first one we have found.
-
 Using Burp Suite’s Intruder, we were not able to find any additional html file on those buckets.
 
 <p align="center">
@@ -100,24 +98,24 @@ Using Burp Suite’s Intruder, we were not able to find any additional html file
 
 # Dynamic Analysis
 
-During the DA, it became obvious that the TAs are trying to collect some personal information on the victim but their main goal is to bill the user’s credit card. That logic is being performed programatically, server side.
+During the DA it became obvious that, while the Threat Actors are trying to collect some personal information on the victim, their main goal is to bill the user’s credit card. They are effectively confirming the validity of the credit card (server side).
 
-Some parameter names being sent on the requests, such as “kode”, “smya”, “knya” could give us some clues about the nationality of the developers/operators of the scam - possibly southeast asia - but that is just a totally unproven assumption and would require further investigation.
+Some parameter names being sent on the requests, such as “kode”, “smya”, “knya” could give us some clues about the nationality of the developers/operators of the scam, but that would be an unproven assumption and would require further investigation.
 
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-SpeedingTicketfromAMA\DAInicial.png" />
 </p>
-<center><font size="3"> <u>Figure</u>(9): Attempting to find additinal html files in one of the buckets.<u></u> </font></center>
+<center><font size="3"> <u>Figure</u>(9): Phone number form<u></u> </font></center>
 <br>
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-SpeedingTicketfromAMA\DACartaoCredito.png" />
 </p>
-<center><font size="3"> <u>Figure</u>(10): Attempting to find additinal html files in one of the buckets.<u></u> </font></center>
+<center><font size="3"> <u>Figure</u>(10): Credit Card form<u></u> </font></center>
 <br>
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-SpeedingTicketfromAMA\DAVerificacaoBancaria.png" />
 </p>
-<center><font size="3"> <u>Figure</u>(11): Attempting to find additinal html files in one of the buckets.<u></u> </font></center>
+<center><font size="3"> <u>Figure</u>(11): Request being sent to the backend<u></u> </font></center>
 <br>
 
 # Indicators of Attack (IOA)
