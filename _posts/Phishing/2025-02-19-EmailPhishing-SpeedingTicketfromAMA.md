@@ -70,7 +70,7 @@ URLScan.io, however, gave us the opportunity to find [another campaign](https://
 </p>
 <center><font size="3"> <u>Figure</u>(5): "amendes.gouv.fr" impersonation<u></u> </font></center>
 <br>
-Both campaigns are using hxxps[:]//www[.]iphimedeia[.]com to host the malicious pages and files. It is unclear if the website belongs to a real [“Iphimedeia” hotel](https://www.tripadvisor.co.uk/Hotel_Review-g580192-d12676183-Reviews-Iphimedeia_Luxury_Hotel_Suites-Naxos_Town_Naxos_Cyclades_South_Aegean.html) and it was compromised for payload delivery, or if it was registered by the malicious actors as a façade. However, given the domain registered date, the first option seems more likely.
+Both campaigns are using hxxps[:]//www[.]iphimedeia[.]com to host the malicious pages and files. It is unclear if the website belongs to a real [“Iphimedeia” hotel](https://www.tripadvisor.co.uk/Hotel_Review-g580192-d12676183-Reviews-Iphimedeia_Luxury_Hotel_Suites-Naxos_Town_Naxos_Cyclades_South_Aegean.html) and it was compromised for payload delivery, or if it was registered by the malicious actors as a façade. However, given the domain registration date, the first option seems more likely.
 
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-SpeedingTicketfromAMA\iphimedeiaRegistration.png" />
