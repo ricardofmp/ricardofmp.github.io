@@ -131,9 +131,9 @@ Some parameter names being sent on the requests, such as “kode”, “smya”,
 
 **URLs/domains:**
 
-- https://**www.iphimedeia.com**/wp-content/languages/loco/themes/**gov**/govPT/Autenticacao/Continue/Login.php
-- https://**www.iphimedeia.com**/wp-content/languages/loco/themes/**pt**/govPT/Autenticacao/Continue/Login.php
-- https://**www.iphimedeia.com**/wp-content/languages/plugins/indx/svvr/fr/am/infospage.php
+- https://**www[.]iphimedeia[.]com**/wp-content/languages/loco/themes/**gov**/govPT/Autenticacao/Continue/Login.php
+- https://**www[.]iphimedeia[.]com**/wp-content/languages/loco/themes/**pt**/govPT/Autenticacao/Continue/Login.php
+- https://**www[.]iphimedeia[.]com**/wp-content/languages/plugins/indx/svvr/fr/am/infospage.php
 
 **Simple URLScan rule**
 
