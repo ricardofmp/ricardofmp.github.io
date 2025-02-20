@@ -2,7 +2,7 @@
 title: Email Phishing Analysis ("Speeding Ticket from AMA")
 classes: wide
 header:
-  teaser: /assets/images/MA/EmailPhishing-SpeedingTicketfromAMA\phishing.png
+  teaser: \assets\images\MA\EmailPhishing-SpeedingTicketfromAMA\phishing.png
 ribbon: MidnightBlue
 categories:
   - Phishing-analysis
