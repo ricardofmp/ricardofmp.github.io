@@ -59,12 +59,13 @@ Some of the online survey websites have different domains but are very similar t
 <br>
 
 
-
-
 # Indicators of Attack (IOA)
 
 **URLs/domains:**
 
+- https://storage.googleapis.com/abdilahmokhtar/abdilahmokhtar.html#4zlywU79=037uDrw554tqqlmagawr87ALZAATSKAKPHZEH58480FJMA839h16
+- https://storage.googleapis.com/abdilahmokhtar/abdilahmokhtar.html#4cXfuE79=037yhto554ikajavlvix87YHUDXCFMXUDZXPC58480JZEI839A16
+- https://storage.googleapis.com/abdilahmokhtar/abdilahmokhtar.html#4sskKP79=037BsaU554mnjgtlpijm87UPSHUQQEUKRZQGZ58480MXPB839S16
 - spomouth[.]fyi
 - malagaopensoffer[.]live
 - laundershirts[.]com
