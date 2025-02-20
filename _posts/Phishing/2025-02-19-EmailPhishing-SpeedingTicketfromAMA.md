@@ -60,7 +60,7 @@ Shodan and Fofa did not give us any particularly interesting results that could 
 
 *NOTE: We will keep an eye on this campaign and the post will be updated accordingly in the future, if necessary.*
 
-URLScan.io, however, gave us the opportunity to find another campaign (https://urlscan.io/result/e08c16a0-d5c8-4bdf-9e92-ae8f33fcec66/#summary), possibly targeting french citizens - hxxps[:]//**www[.]iphimedeia[.]com**/wp-content/languages/plugins/indx/svvr/fr/am/infospage[.]php
+URLScan.io, however, gave us the opportunity to find [another campaign](https://urlscan.io/result/e08c16a0-d5c8-4bdf-9e92-ae8f33fcec66/#summary), possibly targeting french citizens - hxxps[:]//**www[.]iphimedeia[.]com**/wp-content/languages/plugins/indx/svvr/fr/am/infospage[.]php
 
 - The (basic) rule that was used to gather this finding will be at the end of the post.
 - The delivery method employed by the threat actors is not clear.
