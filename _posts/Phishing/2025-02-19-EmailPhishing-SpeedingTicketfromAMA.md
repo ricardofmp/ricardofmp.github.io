@@ -33,11 +33,6 @@ The email contains some highly suspicious signals:
 
 Even though it is perfectly clear this is a phishing attempt by now, we can continue our search.
 
-<p align="center">
-  <img src="\assets\images\MA\EmailPhishing-SpeedingTicketfromAMA\338html.png" />
-</p>
-<center><font size="3"> <u>Figure</u>(2): "338.html" file<u></u> </font></center>
-<br>
 - The AWS S3 Bucket contains an html file with a Click Funnel URL “hxxps[:]//myworkspace1b443[.]myclickfunnels[.]com/skdfjhsqkfhsqdkfjhsd” that will be opened through a “meta refresh redirect”, which will again redirect the user to a (well made) phishing page that impersonates the portuguese authentication system, where users can access all their citizenship information.
     - It is worth notice the “pwd” param with the “Kad00z” value. If the value is incorrect, it will redirect to www.gov.pt, the official domain.
 
