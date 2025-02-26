@@ -39,12 +39,12 @@ Even though it is perfectly clear this is a phishing attempt by now, we can cont
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-SpeedingTicketfromAMA\RedirectChain.png" />
 </p>
-<center><font size="3"> <u>Figure</u>(3): Redirection chain, starting on the ClickFunnel URL<u></u> </font></center>
+<center><font size="3"> <u>Figure</u>(2): Redirection chain, starting on the ClickFunnel URL<u></u> </font></center>
 <br>
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-SpeedingTicketfromAMA\PhishingPage1.png" />
 </p>
-<center><font size="3"> <u>Figure</u>(4): The official phishing page: “hxxps[:]//www[.]iphimedeia[.]com/wp-content/languages/loco/themes/gov/govPT/Autenticacao/Continue/Login[.]php”
+<center><font size="3"> <u>Figure</u>(3): The official phishing page: “hxxps[:]//www[.]iphimedeia[.]com/wp-content/languages/loco/themes/gov/govPT/Autenticacao/Continue/Login[.]php”
 <u></u> </font></center>
 <br>
 
@@ -63,14 +63,14 @@ URLScan.io, however, gave us the opportunity to find [another campaign](https://
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-SpeedingTicketfromAMA\PhishingPageFrench.png" />
 </p>
-<center><font size="3"> <u>Figure</u>(5): "amendes.gouv.fr" impersonation<u></u> </font></center>
+<center><font size="3"> <u>Figure</u>(4): "amendes.gouv.fr" impersonation<u></u> </font></center>
 <br>
 Both campaigns are using hxxps[:]//www[.]iphimedeia[.]com to host the malicious pages and files. It is unclear if the website belongs to a real [“Iphimedeia” hotel](https://www.tripadvisor.co.uk/Hotel_Review-g580192-d12676183-Reviews-Iphimedeia_Luxury_Hotel_Suites-Naxos_Town_Naxos_Cyclades_South_Aegean.html) and it was compromised for payload delivery, or if it was registered by the malicious actors as a façade. However, given the domain registration date, the first option seems more likely.
 
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-SpeedingTicketfromAMA\iphimedeiaRegistration.png" />
 </p>
-<center><font size="3"> <u>Figure</u>(6): Domain registration date<u></u> </font></center>
+<center><font size="3"> <u>Figure</u>(5): Domain registration date<u></u> </font></center>
 <br>
 ## S3 Bucket
 
@@ -79,14 +79,14 @@ It was also possible to discover another file in a different bucket ( https://*
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-SpeedingTicketfromAMA\PhishingPage3.png" />
 </p>
-<center><font size="3"> <u>Figure</u>(7): The page looks exactly the same as the first one we have found.<u></u> </font></center>
+<center><font size="3"> <u>Figure</u>(6): The page looks exactly the same as the first one we have found.<u></u> </font></center>
 <br>
 Using Burp Suite’s Intruder, we were not able to find any additional html file on those buckets.
 
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-SpeedingTicketfromAMA\Intruder.png" />
 </p>
-<center><font size="3"> <u>Figure</u>(8): Attempting to find additinal html files in one of the buckets.<u></u> </font></center>
+<center><font size="3"> <u>Figure</u>(7): Attempting to find additinal html files in one of the buckets.<u></u> </font></center>
 <br>
 
 # Dynamic Analysis
@@ -98,17 +98,17 @@ Some parameter names being sent on the requests, such as “kode”, “smya”,
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-SpeedingTicketfromAMA\DAInicial.png" />
 </p>
-<center><font size="3"> <u>Figure</u>(9): Phone number form<u></u> </font></center>
+<center><font size="3"> <u>Figure</u>(8): Phone number form<u></u> </font></center>
 <br>
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-SpeedingTicketfromAMA\DACartaoCredito.png" />
 </p>
-<center><font size="3"> <u>Figure</u>(10): Credit Card form<u></u> </font></center>
+<center><font size="3"> <u>Figure</u>(9): Credit Card form<u></u> </font></center>
 <br>
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-SpeedingTicketfromAMA\DAVerificacaoBancaria.png" />
 </p>
-<center><font size="3"> <u>Figure</u>(11): Request being sent to the backend<u></u> </font></center>
+<center><font size="3"> <u>Figure</u>(10): Request being sent to the backend<u></u> </font></center>
 <br>
 
 # Indicators of Attack (IOA)
