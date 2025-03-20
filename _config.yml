@@ -95,7 +95,7 @@ analytics:
 author:
   name             : "Ricardo M Pereira"
   avatar           : /assets/images/site/av.jfif # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Notes on TI and Malware by a rookie"
+  bio              : "Malware & TI: Notes from a rookie"
   location         : "Portugal"
   email            :
   links:
