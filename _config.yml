@@ -95,7 +95,7 @@ analytics:
 author:
   name             : "Ricardo M Pereira"
   avatar           : /assets/images/site/av.jfif # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Malware & TI: Notes from a rookie"
+  bio              : "Malware & TI: Notes from a rookie. Currently working on: Malware Analysis of WannaCry"
   location         : "Portugal"
   email            :
   links:
