@@ -31,7 +31,7 @@ Highly suspicious signals:
 </p>
 <center><font size="3"> <u>Figure</u>(2): Email-URLs<u></u> </font></center>
 <br>
-These 3 URLs have a “tarcking_param”, represented by the value after the “#”. This value will be appended to https[:]//malagaopensoffer[.]live/t/
+These 3 URLs have a “tarcking_param”, represented by the value after the “#” (fragment). This value will be appended to https[:]//malagaopensoffer[.]live/t/
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-CTT\FirstScriptRedirect.png" />
 </p>
