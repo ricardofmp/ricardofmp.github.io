@@ -163,7 +163,8 @@ yfdpco.com is flagged by multiple vendors on Virustotal. The resolving IP addres
 
 
 # Yara Rule
-```rule continente_campaign : mail
+```
+rule continente_campaign : mail
 {
     meta:
         author= "Ricardo P."
@@ -181,4 +182,5 @@ yfdpco.com is flagged by multiple vendors on Virustotal. The resolving IP addres
         and #url_googleapis > 2 
         and all of ($generic*)
         and 1 of ($cta*)
-}```
+}
+```
