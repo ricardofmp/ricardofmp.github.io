@@ -21,7 +21,7 @@ Same campaign, 2 different lure versions, which we will call V1 (2 different ema
 and V2 (1 email sample):
 
 <p align="center">
-  <img src="\assets\images\MA\EmailPhishing-Continente\Screenshot_2email2.png" />
+  <img src="\assets\images\MA\EmailPhishing-Continente\Screenshot_2-email2.png" />
 </p>
 <center><font size="3"> <u>Figure</u>(2): Phishing Email V2<u></u> </font></center>
 <br>
@@ -78,7 +78,7 @@ V2:
 - https://storage.googleapis[.]com/yasouimoman/290425qdlkj.html#4PLbQj141204OHLY844sgrqjnvtbi13199EXYZQUGSADSZYTX58137ASNW19917R35
 - https://storage.googleapis[.]com/warebirebim3ahadl9awm/warebirebim3ahadl9awm.html#5HmPWX141204swga844witmypcblc13199GZJMOWDFXQECNXC58137QGRO19917k35
 
-These URLs have the same purpose, pointing to a storage html document that holds a javascript script which, in turn, uses the fragment (#) as “tarcking_param” - a typo we’ve seen in past analysis (meter aqui o link). - to redirect users to another domain. The “sv_ip” variable holds different values for each storage URL. 
+These URLs have the same purpose, pointing to a storage html document that holds a javascript script which, in turn, uses the fragment (#) as “tarcking_param” - a typo we’ve seen in past analysis (meter aqui o link). - to redirect users to another domain. The “sv_ip” variable holds different values for each storage URL.
 
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-Continente\Screenshot_6redirectscript.png" />
