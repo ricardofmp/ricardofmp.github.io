@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Introduction</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <hr>
+<p>title: Email Phishing Analysis - &quot;Continente Win a Nespresso Machine&quot;
+classes: wide
+header:
+teaser: /assets/images/MA/EmailPhishing-Continente/phishing.png
+ribbon: MidnightBlue
+categories:</p>
+<ul>
+<li>Phishing-analysis
+toc: true</li>
+</ul>
+<hr>
+<h1 id="introduction">Introduction</h1>
+<p>Same campaign, 2 different lure versions, which we will call V1 (2 different email samples):</p>
+<p align="center">
+  <img src="file:///\assets\images\MA\EmailPhishing-Continente\Screenshot_1email1.png" />
+</p>
+<center><font size="3"> <u>Figure</u>(1): Phishing Email V1<u></u> </font></center>
+<br>
+<p>and V2 (1 email sample):</p>
+<p align="center">
+  <img src="file:///\assets\images\MA\EmailPhishing-Continente\Screenshot_2-email2.png" />
+</p>
+<center><font size="3"> <u>Figure</u>(2): Phishing Email V2<u></u> </font></center>
+<br>
+<p>It is targeting portuguese citizens with an incredible offer - social engineering feelings being exploited:</p>
+<ul>
+<li>Trust - Continente is a well known brand in Portugal.</li>
+<li>Scarcity - “one of the lucky few”</li>
+</ul>
+<p>A nespresso coffe machine will be gifted, if the user answers a few “quick questions”</p>
+<h1 id="technical-analysis">Technical Analysis</h1>
+<h2 id="headers">Headers</h2>
+<p>Version 1 is bypassing all authentication protocols. By looking deeper, we can see that the domain of the “Envelope From” (which is the same as the “Header From’s”) was created almost one month before the emails were sent (06 and 07 May 2025) - <a href="http://airbodyfly.za">airbodyfly.za</a>[.]com.</p>
+<p align="center">
+  <img src="file:///\assets\images\MA\EmailPhishing-Continente\Screenshot_5whois.png" />
+</p>
+<center><font size="3"> <u>Figure</u>(3): Whois<u></u> </font></center>
+<br>
+<p>It used different subdomains for each email sample.</p>
+<p align="center">
+  <img src="file:///\assets\images\MA\EmailPhishing-Continente\Screenshot_3-returnpath.png" />
+</p>
+<center><font size="3"> <u>Figure</u>(4): Phishing Email V1 - sample 1<u></u> </font></center>
+<br>
+<p align="center">
+  <img src="file:///\assets\images\MA\EmailPhishing-Continente\Screenshot_3-returnpath.png" />
+</p>
+<center><font size="3"> <u>Figure</u>(5): Phishing Email V1 - sample 2<u></u> </font></center>
+<br>
+<h2 id="body">Body</h2>
+<h3 id="urls">URLs</h3>
+<p>V1 sample 1:</p>
+<ul>
+<li><a href="https://storage.googleapis">https://storage.googleapis</a>[.]com/abresoumo/290425qdlkj.html#4QBMoV139760Bdcv844rgnspfycek13199XKSVFDIYWVRMZPA58137BOUY19784S35</li>
+<li><a href="https://storage.googleapis">https://storage.googleapis</a>[.]com/abresoumo/290425qdlkj.html#4MxtYx139760IXek844jkzghrkgrv13199AVGMOKPCDBEELKJ58137PEEZ19784N35</li>
+<li><a href="https://storage.googleapis.com/abresoumo/290425qdlkj.html#4vgLwE139760EkNG844rzzxewoenl13199NRAHSSIPDKZJZJI58137WVJJ19784y35">https://storage.googleapis.com/abresoumo/290425qdlkj.html#4vgLwE139760EkNG844rzzxewoenl13199NRAHSSIPDKZJZJI58137WVJJ19784y35</a></li>
+<li><a href="https://storage.googleapis.com/warebirebim3ahadl9awm/warebirebim3ahadl9awm.html#5SpUfS139760naCg844uyjoyfuged13199KNLKNYDEAXBWLAR58137STJV19784U35">https://storage.googleapis.com/warebirebim3ahadl9awm/warebirebim3ahadl9awm.html#5SpUfS139760naCg844uyjoyfuged13199KNLKNYDEAXBWLAR58137STJV19784U35</a></li>
+</ul>
+<p>V1 sample 2:</p>
+<ul>
+<li><a href="https://storage.googleapis">https://storage.googleapis</a>[.]com/abresoumo/290425qdlkj.html#4lwMAe138295mGgN844eacsfqzxki13199MGCNLUXOULPLSAY58137WOAS19784y35</li>
+<li><a href="https://storage.googleapis">https://storage.googleapis</a>[.]com/abresoumo/290425qdlkj.html#4AqKyB138295rNen844hxozqqsczo13199NMFUUSNTZTAMYAF58137MGUX19784M35</li>
+<li><a href="https://storage.googleapis">https://storage.googleapis</a>[.]com/abresoumo/290425qdlkj.html#4NsmyJ138295LuKu844toqhsjvumd13199NWYXSBZFIXQLBRZ58137SZYM19784M35</li>
+<li><a href="https://storage.googleapis">https://storage.googleapis</a>[.]com/3awedmnjdid001/03333fg5hfg568.html#5YgWSc138295GaCR844pdhswjiqaq13199LEATHCJDGVVQZGU58137BHCE19784K35</li>
+</ul>
+<p>V2:</p>
+<ul>
+<li><a href="https://storage.googleapis">https://storage.googleapis</a>[.]com/yasouimoman/290425qdlkj.html#4tRtTE141204jwFG844xhhqaeqsxp13199FKVEHHYKSTUPFZX58137DOYB19917r35</li>
+<li><a href="https://storage.googleapis">https://storage.googleapis</a>[.]com/yasouimoman/290425qdlkj.html#4PLbQj141204OHLY844sgrqjnvtbi13199EXYZQUGSADSZYTX58137ASNW19917R35</li>
+<li><a href="https://storage.googleapis">https://storage.googleapis</a>[.]com/warebirebim3ahadl9awm/warebirebim3ahadl9awm.html#5HmPWX141204swga844witmypcblc13199GZJMOWDFXQECNXC58137QGRO19917k35</li>
+</ul>
+<p>These URLs have the same purpose, pointing to a html document that holds a javascript script which, in turn, uses the fragment (#) as “tarcking_param” - a typo we’ve seen in <a href="https://malwarerookie.wiki/phishing-analysis/EmailPhishing-CTT/#basic-email-analysis">past analysis</a> - to redirect users to another domain. By using <a href="http://storage.googleapis.com">storage.googleapis.com</a> it is adding a layer of credibility, while also difficulting the task of email security solutions, given it could be used for legitimate purposes.
+The “sv_ip” variable holds different values for each storage URL.</p>
+<p align="center">
+  <img src="file:///\assets\images\MA\EmailPhishing-Continente\Screenshot_6redirectscript.png" />
+</p>
+<center><font size="3"> <u>Figure</u>(6): Redirect script (https://storage.googleapis[].]com/abresoumo/290425qdlkj.html)<u></u> </font></center>
+<br>
+<p align="center">
+  <img src="file:///\assets\images\MA\EmailPhishing-Continente\Screenshot_7redirectchaint.png" />
+</p>
+<center><font size="3"> <u>Figure</u>(7): Incomplete redirect chain in URLScan<u></u> </font></center>
+<br>
+<p>As it is employing multiple redirects and cloaking through params, it was not possible to find the complete redirection chain using URLScan.</p>
+<p align="center">
+  <img src="file:///\assets\images\MA\EmailPhishing-Continente\Screenshot_7.5redirectchain.png" />
+</p>
+<center><font size="3"> <u>Figure</u>(8): Redirect chain on Firefox (to be continued)<u></u> </font></center>
+<br>
+<p>Here we have another lure page. It is full of urgency calls to action, including a timer. URL: <a href="https://findoutifulcky.quest/?sub5=24779&amp;source_id=20733&amp;encoded_value=223GDT1&amp;sub1=4831cf1866af40f897586edefdea97e7&amp;sub2=&amp;sub3=&amp;sub4=&amp;sub5=24779&amp;source_id=20720&amp;domain=www.loiete.com&amp;ip=%5BIP_address%5D">https://findoutifulcky.quest/?sub5=24779&amp;source_id=20733&amp;encoded_value=223GDT1&amp;sub1=4831cf1866af40f897586edefdea97e7&amp;sub2=&amp;sub3=&amp;sub4=&amp;sub5=24779&amp;source_id=20720&amp;domain=www.loiete.com&amp;ip=[IP_address]</a></p>
+<p align="center">
+  <img src="file:///\assets\images\MA\EmailPhishing-Continente\Screenshot_8redirectedpaget.png" />
+</p>
+<center><font size="3"> <u>Figure</u>(9): First landing page<u></u> </font></center>
+<br>
+<p>After filling out the form, in order to “win a Nespresso coffe machine”, it redirects the victim to sweepzprizes[.]com, where a login screen is presented, which includes a payment step, revealing the ultimate goal of the malicious campaign. The strings on a script also prove that is the case.</p>
+<p align="center">
+  <img src="file:///\assets\images\MA\EmailPhishing-Continente\Screenshot_10-secondredirectchain.png" />
+</p>
+<center><font size="3"> <u>Figure</u>(10): One more redirection chain<u></u> </font></center>
+<br> 
+<p align="center">
+  <img src="file:///\assets\images\MA\EmailPhishing-Continente\Screenshot_11-finalpage1.png" />
+</p>
+<center><font size="3"> <u>Figure</u>(11): Next landing page<u></u> </font></center>
+<br>
+<p align="center">
+  <img src="file:///\assets\images\MA\EmailPhishing-Continente\Screenshot_11.5paymentindicator.png" />
+</p>
+<center><font size="3"> <u>Figure</u>(12): Payment strings (https://sweepzprizes[.]com/theme/Master/SubscriptionPages/js/subscriptions/min/scripts.min.1207b526.js)<u></u> </font></center>
+<br>
+<p>The redirection chain continues after the login POST request. However,  it seems to be using <a href="http://parklogic.com">parklogic.com</a> infrastructure, which requires multiple cloaking parameters (for example gpu of the victim’s machine), preventing us from going further down the rabbit hole.</p>
+<p align="center">
+  <img src="file:///\assets\images\MA\EmailPhishing-Continente\Screenshot_12afterloginpost.png" />
+</p>
+<center><font size="3"> <u>Figure</u>(13): Another redirection chain<u></u> </font></center>
+<br> 
+<p align="center">
+  <img src="file:///\assets\images\MA\EmailPhishing-Continente\Screenshot_13gpucloaking.png" />
+</p>
+<center><font size="3"> <u>Figure</u>(14): Example of cloaking parameters<u></u> </font></center>
+<br>  
+<p>Even after checking the URL on hybrid-analysis, it was still not possible to find anything else.</p>
+<p align="center">
+  <img src="file:///\assets\images\MA\EmailPhishing-Continente\Screenshot_14hybridanalysis.png" />
+</p>
+<center><font size="3"> <u>Figure</u>(15): Hybrid-analysis<u></u> </font></center>
+<br>
+<p><a href="http://yfdpco.com">yfdpco.com</a> is flagged by multiple vendors on Virustotal. The resolving IP address (208.91.196[.]46) is also being pointed to (or was) by dozens of other suspicious domains. A high number of them have a 302 redirect header and, while it does not prove that every single one belongs to this malicious infrastrucure, it seems quite clear that this operation is much larger than what we are able to uncover in this analysis.</p>
+<p align="center">
+  <img src="file:///\assets\images\MA\EmailPhishing-Continente\Screenshot_15virustotal.pngg" />
+</p>
+<center><font size="3"> <u>Figure</u>(16): VirusTotal (yfdpco.com)<u></u> </font></center>
+<br>
+<p align="center">
+  <img src="file:///\assets\images\MA\EmailPhishing-Continente\Screenshot_16fofa.png" />
+</p>
+<center><font size="3"> <u>Figure</u>(17): Fofa rule: ip="208.91.196.46" && protocol="http”<u></u> </font></center>
+<br>
+<h1 id="yara-rule">Yara Rule</h1>
+<pre><code class="language-rule">{
+    meta:
+        author= &quot;Ricardo P.&quot;
+        description= &quot;Catches phishing emails targeting portuguese citizens, with a Continente supermarket lure&quot;
+    strings:
+        
+        $subject_1 = &quot;Adquira uma&quot;
+        $subject_2 = /ID#\d{4}/
+        $generic_1 = &quot;Continente&quot; nocase
+        $generic_2 = &quot;obrigado&quot; nocase
+        $url_googleapis = /href=[3D]?['&quot;]https?:\/\/storage\.googleapis\.com\/[\w]+\/\w+\.html#[\w]+['&quot;]/ // Usually between 3 and 4. Added a Quoted-printable encoded =, just in case. 
+        $cta_1 = &quot;Obtenha já&quot; nocase
+        $cta_2 = &quot;Obter agora&quot; nocase
+    condition:
+        all of ($subject*)
+        and #url_googleapis &gt; 2 
+        and all of ($generic*)
+        and 1 of ($cta*)
+}```</code></pre>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>

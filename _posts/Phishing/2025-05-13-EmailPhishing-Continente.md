@@ -1,5 +1,5 @@
 ---
-title: Email Phishing Analysis - "Continente Win a Nespresso Machine"
+title: Email Phishing Analysis - "Continente - Win a Nespresso Machine"
 classes: wide
 header:
   teaser: /assets/images/MA/EmailPhishing-Continente/phishing.png
@@ -78,7 +78,7 @@ V2:
 - https://storage.googleapis[.]com/yasouimoman/290425qdlkj.html#4PLbQj141204OHLY844sgrqjnvtbi13199EXYZQUGSADSZYTX58137ASNW19917R35
 - https://storage.googleapis[.]com/warebirebim3ahadl9awm/warebirebim3ahadl9awm.html#5HmPWX141204swga844witmypcblc13199GZJMOWDFXQECNXC58137QGRO19917k35
 
-These URLs have the same purpose, pointing to a html document that holds a javascript script which, in turn, uses the fragment (#) as “tarcking_param” - a typo we’ve seen in past analysis (meter aqui o link). - to redirect users to another domain. By using storage.googleapis.com it is adding a layer of credibility, while also difficulting the task of email security solutions, given it could be used for legitimate purposes.
+These URLs have the same purpose, pointing to a html document that holds a javascript script which, in turn, uses the fragment (#) as “tarcking_param” - a typo we’ve seen in [past analysis](https://malwarerookie.wiki/phishing-analysis/EmailPhishing-CTT/#basic-email-analysis) - to redirect users to another domain. By using storage.googleapis.com it is adding a layer of credibility, while also difficulting the task of email security solutions, given it could be used for legitimate purposes.
 The “sv_ip” variable holds different values for each storage URL.
 
 <p align="center">
