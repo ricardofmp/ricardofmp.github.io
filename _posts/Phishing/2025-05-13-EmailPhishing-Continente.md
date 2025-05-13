@@ -151,7 +151,7 @@ Even after checking the URL on hybrid-analysis, it was still not possible to fin
 yfdpco.com is flagged by multiple vendors on Virustotal. The resolving IP address (208.91.196[.]46) is also being pointed to (or was) by dozens of other suspicious domains. A high number of them have a 302 redirect header and, while it does not prove that every single one belongs to this malicious infrastrucure, it seems quite clear that this operation is much larger than what we are able to uncover in this analysis.
 
 <p align="center">
-  <img src="\assets\images\MA\EmailPhishing-Continente\Screenshot_15virustotal.pngg" />
+  <img src="\assets\images\MA\EmailPhishing-Continente\Screenshot_15virustotal.png" />
 </p>
 <center><font size="3"> <u>Figure</u>(16): VirusTotal (yfdpco.com)<u></u> </font></center>
 <br>
