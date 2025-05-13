@@ -78,7 +78,7 @@ V2:
 - https://storage.googleapis[.]com/yasouimoman/290425qdlkj.html#4PLbQj141204OHLY844sgrqjnvtbi13199EXYZQUGSADSZYTX58137ASNW19917R35
 - https://storage.googleapis[.]com/warebirebim3ahadl9awm/warebirebim3ahadl9awm.html#5HmPWX141204swga844witmypcblc13199GZJMOWDFXQECNXC58137QGRO19917k35
 
-These URLs have the same purpose, pointing to a storage html document that holds a javascript script which, in turn, uses the fragment (#) as “tarcking_param” - a typo we’ve seen in past analysis (meter aqui o link). - to redirect users to another domain. The “sv_ip” variable holds different values for each storage URL. 
+These URLs have the same purpose, pointing to a storage html document that holds a javascript script which, in turn, uses the fragment (#) as “tarcking_param” - a typo we’ve seen in past analysis (meter aqui o link). - to redirect users to another domain. The “sv_ip” variable holds different values for each storage URL. It is clearly employing a Traffic Distribution System.  VIR AQUI ADICIONAR INFO 
 
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-Continente\Screenshot_6redirectscript.png" />
