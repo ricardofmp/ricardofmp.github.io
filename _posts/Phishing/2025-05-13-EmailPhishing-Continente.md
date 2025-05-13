@@ -169,7 +169,6 @@ yfdpco.com is flagged by multiple vendors on Virustotal. The resolving IP addres
         author= "Ricardo P."
         description= "Catches phishing emails targeting portuguese citizens, with a Continente supermarket lure"
     strings:
-        
         $subject_1 = "Adquira uma"
         $subject_2 = /ID#\d{4}/
         $generic_1 = "Continente" nocase
