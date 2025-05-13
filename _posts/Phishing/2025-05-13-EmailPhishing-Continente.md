@@ -26,7 +26,7 @@ and V2 (1 email sample):
 <center><font size="3"> <u>Figure</u>(2): Phishing Email V2<u></u> </font></center>
 <br>
 
-It is targeting portuguese citizens with an incredible offer - social engineering feelings being exploited:
+It is targeting portuguese citizens with an "incredible offer" - social engineering tricks:
 
 - Trust - Continente is a well known brand in Portugal.
 - Scarcity - “one of the lucky few”
