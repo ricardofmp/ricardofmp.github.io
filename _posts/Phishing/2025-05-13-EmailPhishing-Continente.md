@@ -8,6 +8,7 @@ categories:
   - Phishing-analysis
 toc: true
 ---
+*Raw notes, will be re-written in the future.*
 
 # Introduction
 Same campaign, 2 different lure versions, which we will call V1 (2 different email samples):
@@ -119,7 +120,7 @@ After filling out the form, in order to “win a Nespresso coffe machine”, it 
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-Continente\Screenshot_11-finalpage1.png" />
 </p>
-<center><font size="3"> <u>Figure</u>(11): Next landing page<u></u> </font></center>
+<center><font size="3"> <u>Figure</u>(11): Next landing page (at sweepzprizes[.]com)<u></u> </font></center>
 <br>
 <p align="center">
   <img src="\assets\images\MA\EmailPhishing-Continente\Screenshot_11.5paymentindicator.png" />
