@@ -175,7 +175,7 @@ rule continente_campaign : mail
         $subject_2 = /ID#\d{4}/
         $generic_1 = "Continente" nocase
         $generic_2 = "obrigado" nocase
-        $url_googleapis = /href=(3D)*['"]https?:\/\/storage\.googleapis\.com\/[\w]+\/\w+\.html#[\w]+['"]/ // Usually between 3 and 4. Added a Quoted-printable encoded =, just in case. 
+        $url_googleapis = /href=(3D)?['"]https?:\/\/storage\.googleapis\.com\/[\w]+\/\w+\.html#[\w]+['"]/ // Usually between 3 and 4. Added a Quoted-printable encoded =, just in case. 
         $cta_1 = "Obtenha já" nocase
         $cta_2 = "Obter agora" nocase
     condition:
