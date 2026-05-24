@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import OptimizedImage from './OptimizedImage.astro';
+import { settings } from '../data/settings';
+import { withBase } from '../utils/paths';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 2);
+
+
+function getReadingTime(content?: string): number {
+  const safe = content ?? '';
+  const words = safe.split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 180));
+}
+---
+
+<div class="col col-4 col-d-6 col-t-12">
+  <div class="widget widget-recent">
+    <div class="widget__head">
+      <h3 class="widget__title">Latest Posts</h3>
+    </div>
+
+    {posts.map((post) => (
+      <div class="recent-posts">
+        {post.data.image && (
+          <a class="recent-posts__image" href={withBase(`/posts/${post.id}`)}>
+            <OptimizedImage
+              src={post.data.image}
+              alt={post.data.title}
+              loading="lazy"
+            />
+          </a>
+        )}
+
+        <div class="recent-posts__content">
+          <div class="article__meta">
+            <span class="article__minutes">
+              {getReadingTime(post.body)} min read
+            </span>
+            <time class="article__date" datetime={post.data.date.toISOString()}>
+              {post.data.date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+              })}
+            </time>
+          </div>
+
+          <h4 class="recent-posts__title">
+            <a href={withBase(`/posts/${post.id}`)}>{post.data.title}</a>
+          </h4>
+
+          <div class="article__bottom">
+            <div class="article__author">
+              <a href={withBase('/about/')} aria-label={settings.author.name}>
+                <OptimizedImage
+                  class="article__author-image"
+                  src={settings.author.src}
+                  alt={settings.author.name}
+                />
+              </a>
+            </div>
+            <div class="article__bottom-meta">
+              <a href={withBase('/about/')} class="article__author-link">
+                {settings.author.name}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>

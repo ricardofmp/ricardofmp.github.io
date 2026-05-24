@@ -1,0 +1,27 @@
+{
+  "name": "norlin",
+  "type": "module",
+  "version": "1.1.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^5.0.0",
+    "@astrojs/rss": "^4.0.17",
+    "@astrojs/sitemap": "^3.7.1",
+    "@iconify-json/fa7-brands": "^1.2.1",
+    "@iconify-json/fa7-regular": "^1.2.2",
+    "@iconify-json/fa7-solid": "^1.2.3",
+    "astro": "^6.0.2",
+    "astro-icon": "^1.1.5",
+    "fuse.js": "^7.1.0",
+    "remark-directive": "^4.0.0",
+    "unist-util-visit": "^5.0.0"
+  },
+  "devDependencies": {
+    "sass": "^1.97.1"
+  }
+}

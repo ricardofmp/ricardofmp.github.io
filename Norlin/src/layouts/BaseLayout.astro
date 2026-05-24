@@ -1,0 +1,93 @@
+---
+import { ClientRouter } from "astro:transitions";
+import { Font } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ScrollToTop from '../components/ScrollToTop.astro';
+import { settings } from '../data/settings';
+import '../styles/main.scss';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: ImageMetadata | string;
+}
+
+const {
+  description = settings.site.description,
+  image = settings.site.image
+} = Astro.props;
+
+const title = [...new Set([Astro.props.title, settings.site.title])].filter(Boolean).join(' | ');
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || settings.site.url);
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const imageUrl = typeof image === 'string'
+  ? image
+  : image?.src
+    ? new URL(image.src, Astro.site || settings.site.url).toString()
+    : settings.site.image;
+---
+
+<!doctype html>
+<html lang={settings.site.language || 'en'}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <ClientRouter />
+    <Font cssVariable='--font-inter' preload />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <link rel="icon" type="image/x-icon" href={`${base}favicon.ico`} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {imageUrl && <meta property="og:image" content={imageUrl} />}
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {imageUrl && <meta name="twitter:image" content={imageUrl} />}
+
+    <link rel="sitemap" href={`${base}sitemap-index.xml`} />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href={`${base}rss.xml`} />
+
+    {settings.analytics.google && (
+      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${settings.analytics.google}`}></script>
+      <script is:inline define:vars={{ gaId: settings.analytics.google }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        const sendConfig = () => {
+          gtag('config', gaId, {
+            page_path: window.location.pathname,
+          });
+        };
+
+        sendConfig();
+
+        document.addEventListener('astro:page-load', sendConfig);
+      </script>
+    )}
+  </head>
+  <body>
+    <Header />
+    <main class="content">
+      <slot />
+    </main>
+    <ScrollToTop />
+    <Footer />
+
+    <script>
+      import '../scripts/common.ts';
+    </script>
+  </body>
+</html>

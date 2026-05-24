@@ -1,0 +1,160 @@
+---
+import { settings } from '../data/settings';
+
+interface Props {
+  identifier?: string;
+  url?: string;
+  title?: string;
+}
+
+const {
+  identifier = settings.comments.disqusIdentifier,
+  url = Astro.url.toString(),
+  title = Astro.props.title,
+} = Astro.props;
+---
+
+<!-- begin comments -->
+<div class='container'>
+  <div class='row'>
+    <div class='col col-12'>
+      <div class='disqus-inner'>
+        <div
+          id='disqus_thread'
+          class='post-comments'
+          data-disqus-shortname={identifier}
+          data-disqus-url={url}
+          data-disqus-title={title}
+        >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  interface DisqusConfig {
+    page: {
+      url: string | null;
+      identifier: string | null;
+      title?: string | null;
+    };
+  }
+
+  interface DisqusWindow extends Window {
+    DISQUS?: {
+      reset: (config: {
+        reload: boolean;
+        config: (this: DisqusConfig) => void;
+      }) => void;
+    };
+    disqus_config?: (this: DisqusConfig) => void;
+  }
+
+  declare const window: DisqusWindow;
+
+  let scrollListener: (() => void) | null = null;
+  let disqusLoaded = false;
+
+  function loadDisqus() {
+    if (disqusLoaded) return;
+
+    const disqusThread = document.getElementById('disqus_thread');
+    if (!disqusThread) return;
+
+    const shortname = disqusThread.getAttribute('data-disqus-shortname');
+    const pageUrl = disqusThread.getAttribute('data-disqus-url');
+    const pageTitle = disqusThread.getAttribute('data-disqus-title');
+
+    if (!shortname) return;
+
+    disqusLoaded = true;
+
+    window.disqus_config = function (this: DisqusConfig) {
+      this.page.url = pageUrl;
+      this.page.identifier = pageUrl;
+      if (pageTitle) {
+        this.page.title = pageTitle;
+      }
+    };
+
+    const disqusEmbed = document.createElement('script');
+    disqusEmbed.type = 'text/javascript';
+    disqusEmbed.async = true;
+    disqusEmbed.src = '//' + shortname + '.disqus.com/embed.js';
+
+    const disqusHook =
+      document.getElementsByTagName('head')[0] ||
+      document.getElementsByTagName('body')[0];
+    disqusHook.appendChild(disqusEmbed);
+
+    if (scrollListener) {
+      window.removeEventListener('scroll', scrollListener);
+      scrollListener = null;
+    }
+  }
+
+  function checkScroll() {
+    const disqusThread = document.getElementById('disqus_thread');
+    if (disqusThread && !disqusLoaded) {
+      const rect = disqusThread.getBoundingClientRect();
+      const viewportHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+
+      if (rect.top < viewportHeight + 400) {
+        loadDisqus();
+      }
+    }
+  }
+
+  function resetDisqus() {
+    const disqusThread = document.getElementById('disqus_thread');
+    if (!disqusThread) return;
+
+    const pageUrl = disqusThread.getAttribute('data-disqus-url');
+    const pageTitle = disqusThread.getAttribute('data-disqus-title');
+
+    if (window.DISQUS) {
+      window.DISQUS.reset({
+        reload: true,
+        config: function (this: DisqusConfig) {
+          this.page.url = pageUrl;
+          this.page.identifier = pageUrl;
+          if (pageTitle) {
+            this.page.title = pageTitle;
+          }
+        },
+      });
+    } else {
+      disqusLoaded = false;
+      if (scrollListener) {
+        window.removeEventListener('scroll', scrollListener);
+      }
+      scrollListener = checkScroll;
+      window.addEventListener('scroll', scrollListener, { passive: true });
+    }
+  }
+
+  function initDisqus() {
+    if (scrollListener) {
+      window.removeEventListener('scroll', scrollListener);
+    }
+
+    scrollListener = checkScroll;
+    window.addEventListener('scroll', scrollListener, { passive: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDisqus);
+  } else {
+    initDisqus();
+  }
+
+  document.addEventListener('astro:page-load', resetDisqus);
+</script>
+
+<noscript>
+  Please enable JavaScript to view the
+  <a href='https://disqus.com/?ref_noscript'>comments powered by Disqus.</a>
+</noscript>
+<!-- end comments -->

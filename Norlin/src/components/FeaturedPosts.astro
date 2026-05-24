@@ -1,0 +1,26 @@
+---
+import ArticleCard from '../components/ArticleCard.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  posts: CollectionEntry<'posts'>[];
+}
+
+const { posts } = Astro.props as Props;
+---
+
+{
+  posts.length > 0 && (
+    <section class="featured-post">
+      <div class="container">
+        <div class="row grid">
+          {
+            posts.map((post) => (
+              <ArticleCard post={post} disableBig={true} showFeaturedIcon={true} />
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  )
+}

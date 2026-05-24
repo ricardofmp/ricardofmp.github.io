@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils/paths';
+
+const data = {
+  title: 'Page not found',
+  description: 'The requested page could not be found.',
+};
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.description}
+>
+
+  <div class='container'>
+    <article class='page page-error animate'>
+      <div class='page__content'>
+        <h2 class="page-error__title">404</h2>
+        <p>The requested page could not be found.</p>
+        <p>
+          <a href={withBase('/')} class='button button--middle'>
+            Go back home
+          </a>
+        </p>
+        <hr />
+      </div>
+    </article>
+  </div>
+</BaseLayout>

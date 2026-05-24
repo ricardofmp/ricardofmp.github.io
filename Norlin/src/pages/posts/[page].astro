@@ -1,0 +1,39 @@
+---
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+import { settings } from '../../data/settings';
+
+export async function getStaticPaths({ paginate }: any) {
+  const { initial, step } = settings.pagination;
+  const rawPosts = await getCollection('posts', ({ data }) => !data.draft);
+  const posts = rawPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+  const remainingPosts = posts.slice(initial);
+  return paginate(remainingPosts, { pageSize: step });
+}
+
+const { page } = Astro.props as { page: any };
+const { initial, step } = settings.pagination;
+
+const startIndex = initial + (page.currentPage - 1) * step;
+---
+
+{
+  page.data.map((post: any, i: number) => (
+    <ArticleCard
+      post={post}
+      index={startIndex + i}
+      isHome={true}
+    />
+  ))
+}
+
+{
+  page.url.next && (
+    <div
+      id='next-page-info'
+      data-next-page={page.currentPage + 1}
+      style='display:none;'
+    />
+  )
+}

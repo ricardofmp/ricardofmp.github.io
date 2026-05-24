@@ -1,0 +1,75 @@
+// *****************
+// Global Variables
+// *****************
+
+// Spaces
+$base-spacing-unit: 20px;
+
+// Transition
+$global-transition: all .2s;
+
+
+// *****************
+// Color Variables
+// *****************
+$brand-color: #ff7b7b;
+$dark: #09080f;
+$blue-dark: #17151E;
+$gray: #aaa;
+$light-gray: #eee;
+$white: #fff;
+
+// Body
+$text-color: $light-gray;
+
+// Background
+$background-color: #0f0e15;
+
+// Button
+$button-background-hover: #ff6262;
+
+// Callouts
+$callout-note-bg: #1e3a8a;
+$callout-note-border: #3b82f6;
+
+// Tip
+$callout-tip-bg: #065f46;
+$callout-tip-border: #10b981;
+
+// Important
+$callout-important-bg: #581c87;
+$callout-important-border: #8b5cf6;
+
+// Warning
+$callout-warning-bg: #78350f;
+$callout-warning-border: #f59e0b;
+
+// Caution
+$callout-caution-bg: #7f1d1d;
+$callout-caution-border: #ef4444;
+
+
+// *****************
+// Typography
+// *****************
+$base-font-size: 18px;
+$base-font-style: normal;
+$base-font-variant: normal;
+$base-font-weight: normal;
+$base-font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+$base-line-height: 1.7;
+
+// Headings
+$heading-font-weight: 900;
+$heading-font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+$heading-color: $text-color;
+
+$font-size-h1: 36px;
+$font-size-h2: 28px;
+$font-size-h3: 24px;
+$font-size-h4: 20px;
+$font-size-h5: 18px;
+$font-size-h6: 16px;
+
+$heading-line-height: 1.4em;
+$heading-letter-spacing: -1px;

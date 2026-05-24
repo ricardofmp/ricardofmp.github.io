@@ -1,0 +1,39 @@
+---
+import { settings } from '../data/settings';
+import SocialLinks from './SocialLinks.astro';
+import WidgetRecentPosts from './WidgetRecentPosts.astro';
+import WidgetSubscribe from './WidgetSubscribe.astro';
+import WidgetTagCloud from './WidgetTagCloud.astro';
+import { withBase } from '../utils/paths';
+const { title } = settings.site;
+---
+
+<!-- begin footer-widgets -->
+<section class='footer-widgets'>
+  <div class='container'>
+    <div class='row'>
+      <WidgetRecentPosts />
+      <WidgetTagCloud />
+      <WidgetSubscribe />
+    </div>
+  </div>
+</section>
+<!-- end footer-widgets -->
+
+<!-- begin footer -->
+<footer class='footer'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col col-12'>
+        <div class='footer__inner'>
+          <div class='copyright'>
+            {new Date().getFullYear()} &copy; <a href={withBase('/')}>{title}</a>. Crafted &
+            Designed by <a href='http://anvodstudio.com'>Anvod Studio</a>.
+          </div>
+          <SocialLinks />
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- end footer -->

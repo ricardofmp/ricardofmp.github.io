@@ -1,0 +1,207 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import OptimizedImage from '../../components/OptimizedImage.astro';
+import PostShare from '../../components/PostShare.astro';
+import RelatedPosts from '../../components/RelatedPosts.astro';
+import DisqusComments from '../../components/DisqusComments.astro';
+import { settings } from '../../data/settings';
+import { withBase } from '../../utils/paths';
+
+export async function getStaticPaths() {
+  const rawPosts = await getCollection('posts', ({ data }) => !data.draft);
+
+  const posts = rawPosts.sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+  );
+
+  return posts.map((post, index) => {
+    const newer = posts[index - 1];
+    const older = posts[index + 1];
+
+    return {
+      params: { id: post.id },
+      props: {
+        post,
+        next: newer,
+        prev: older,
+      },
+    };
+  });
+}
+
+const { post, next, prev } = Astro.props;
+const { data } = post;
+const { Content } = await render(post);
+
+function getReadingTime(content?: string): number {
+  const safe = content ?? '';
+  const words = safe.split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 180));
+}
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  image={data.image}
+>
+  <!-- Post head -->
+  <div class='post-head'>
+    <div class='container'>
+      <div class='row'>
+        {
+          data.image && (
+            <div class='col col-6 col-t-12'>
+              <div class='image-box'>
+                <OptimizedImage
+                  class='post-image'
+                  src={data.image}
+                  alt={data.title}
+                  loading='lazy'
+                  fetchpriority='high'
+                />
+              </div>
+            </div>
+          )
+        }
+
+        <div class='col col-6 col-t-12'>
+          <div class='post-head__box'>
+            <div class='post__meta'>
+              <span class='post__minutes'>
+                {getReadingTime(post.body)} min read
+                <time class='post__date' datetime={data.date.toISOString()}>
+                  {
+                    data.date.toLocaleDateString('en-US', {
+                      month: 'short',
+                      day: 'numeric',
+                      year: 'numeric',
+                    })
+                  }
+                </time>
+              </span>
+            </div>
+
+            <h2 class='post__title'>{data.title}</h2>
+
+            <div class='post__bottom'>
+              <div class='post__author'>
+                <a href={withBase('/about/')} aria-label={settings.author.name}>
+                  <OptimizedImage
+                    class='post__author-image'
+                    src={settings.author.src}
+                    alt={settings.author.name}
+                    loading='lazy'
+                    fetchpriority='auto'
+                  />
+                </a>
+              </div>
+              <div class='post__bottom-meta'>
+                <a href={withBase('/about/')} class='post__author-link'
+                  >{settings.author.name}</a
+                >
+                {
+                  data.tags && data.tags.length >= 1 && (
+                    <>
+                      <span>in</span>
+                      <span class='post-tags'>
+                        {data.tags.map((tag) => (
+                          <a
+                            href={withBase(`/tags/${encodeURIComponent(tag.toLowerCase())}`)}
+                            class='post__tag'
+                          >
+                            {tag}
+                          </a>
+                        ))}
+                      </span>
+                    </>
+                  )
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class='container'>
+    <article class='post animate'>
+      <div class='post__content'>
+        <Content />
+      </div>
+
+      <!-- Share -->
+      <PostShare
+        title={data.title}
+        url={Astro.url.toString()}
+        image={data.image
+          ? new URL(data.image.src, Astro.url).toString()
+          : undefined}
+      />
+
+      <!-- Navigation -->
+      <div class='post__navigation'>
+        {
+          prev && (
+            <a class='prev' href={withBase(`/posts/${prev.id}`)}>
+              {prev.data.image && (
+                <OptimizedImage
+                  class='post__nav-image'
+                  src={prev.data.image}
+                  alt={prev.data.title}
+                  loading='lazy'
+                  fetchpriority='auto'
+                />
+              )}
+              <div class='post__nav-box'>
+                <div class='post__nav post__nav__prev'>
+                  <Icon name='fa7-solid:arrow-left' size='15' /> Prev Post
+                </div>
+                <h4 class='post__nav__title'>{prev.data.title}</h4>
+              </div>
+            </a>
+          )
+        }
+
+        {
+          next && (
+            <a class='next' href={withBase(`/posts/${next.id}`)}>
+              {next.data.image && (
+                <OptimizedImage
+                  class='post__nav-image'
+                  src={next.data.image}
+                  alt={next.data.title}
+                  loading='lazy'
+                  fetchpriority='auto'
+                />
+              )}
+              <div class='post__nav-box'>
+                <div class='post__nav post__nav__next'>
+                  Next Post <Icon name='fa7-solid:arrow-right' size='15' />
+                </div>
+                <h4 class='post__nav__title'>{next.data.title}</h4>
+              </div>
+            </a>
+          )
+        }
+      </div>
+    </article>
+  </div>
+
+  <!-- Related Posts -->
+  <RelatedPosts currentPost={post} limit={3} />
+
+  <!-- Comments -->
+  {
+    settings.comments.enabled && (
+      <DisqusComments
+        identifier={settings.comments.disqusIdentifier}
+        title={data.title}
+      />
+    )
+  }
+</BaseLayout>

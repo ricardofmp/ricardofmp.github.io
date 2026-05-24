@@ -1,0 +1,21 @@
+---
+import { settings } from '../data/settings';
+import { stripBase, withBase } from '../utils/paths';
+const pathname = stripBase(Astro.url.pathname);
+---
+
+<ul class='nav__list list-reset'>
+  {
+    settings.navigation.items.map((item) => {
+      const isActive = pathname === item.url;
+
+      return (
+        <li class={`nav__item${isActive ? ' is-active' : ''}`}>
+          <a href={withBase(item.url)} class='nav__link'>
+            {item.title}
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>

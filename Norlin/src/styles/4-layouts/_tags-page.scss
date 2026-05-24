@@ -1,0 +1,93 @@
+@use "../0-settings/variables";
+@use "../1-tools/grid";
+
+/* Tag Page */
+.archive-box {
+  position: relative;
+  margin: 96px 0 80px;
+  text-align: center;
+  @media only screen and (max-width: grid.$desktop) {
+    margin: 80px 0 60px;
+  }
+  @media only screen and (max-width: grid.$mobile) {
+    margin: 20px 0 40px;
+  }
+}
+
+.archive-meta {
+  font-size: 16px;
+  color: rgba(variables.$text-color, .6);
+}
+
+.archive-title {
+  position: relative;
+  margin: 0;
+  font-size: 47px;
+  line-height: 57px;
+  @media only screen and (max-width: grid.$mobile) {
+    font-size: 40px;
+    line-height: 52px;
+  }
+}
+
+.archive-description {
+  max-width: 600px;
+  margin: 10px auto 0;
+  font-size: 16px;
+  line-height: 32px;
+  @media only screen and (max-width: grid.$mobile) {
+    margin: 5px auto 0;
+    line-height: 28px;
+  }
+}
+
+/* Tags */
+.tags__box {
+  position: relative;
+  margin: 36px 0 40px;
+  text-align: center;
+
+  @media only screen and (max-width: grid.$mobile) {
+    margin: 0 0 40px;
+  }
+}
+
+.tags__title {
+  position: relative;
+  margin: 0;
+  font-size: 47px;
+  line-height: 57px;
+  text-transform: capitalize;
+
+  @media only screen and (max-width: grid.$mobile) {
+    font-size: 40px;
+    line-height: 52px;
+  }
+}
+
+.tags__name {
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 auto 32px;
+
+  a {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 0 5px 5px 0;
+    font-size: 12px;
+    line-height: 10px;
+    font-weight: 700;
+    text-transform: capitalize;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    color: variables.$gray;
+
+    &:hover {
+      border-color: variables.$brand-color;
+      color: variables.$white;
+    }
+  }
+}

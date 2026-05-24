@@ -1,0 +1,60 @@
+@use "../0-settings/variables";
+
+img[data-action="zoom"] {
+  cursor: pointer;
+}
+
+.zoom-img,
+.zoom-img-wrap {
+  position: relative;
+  z-index: 999;
+  transition: all 300ms;
+}
+
+img.zoom-img {
+  cursor: pointer;
+}
+
+.zoom-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  background-color: variables.$background-color;
+  transition: 0.3s cubic-bezier(.2, 0, .1, 1) opacity;
+
+  &.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    -webkit-backdrop-filter: saturate(180%) blur(24px);
+    backdrop-filter: saturate(180%) blur(24px);
+    background: rgba(variables.$background-color, .8);
+  }
+}
+.zoom-overlay-open .zoom-overlay {
+  opacity: 1;
+}
+
+.zoom-overlay-open,
+.zoom-overlay-transitioning {
+  cursor: default;
+}
+
+.zoom-target {
+  position: relative;
+  cursor: zoom-in;
+  transition: 0.3s cubic-bezier(.2, 0, .1, 1) transform;
+  will-change: transform;
+
+  &.is-zoomed {
+    z-index: 101;
+    cursor: zoom-out;
+  }
+}

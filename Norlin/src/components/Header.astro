@@ -1,0 +1,87 @@
+---
+import Navigation from './Navigation.astro';
+import Search from './Search.astro';
+import { Icon } from 'astro-icon/components';
+import { settings } from '../data/settings';
+import { stripBase, withBase } from '../utils/paths';
+
+interface Props {
+  pageId?: 'post' | 'tag' | '404';
+}
+
+const { pageId } = Astro.props;
+const pathname = stripBase(Astro.url.pathname);
+const isPost = pathname.startsWith('/posts/');
+const isTag = pathname.startsWith('/tags');
+const is404 = pageId === '404';
+const isHeaderTop = !isPost && !isTag && !is404;
+---
+
+<!-- begin header -->
+<header class:list={['header', { 'header--top': isHeaderTop }]}>
+  <div class='container'>
+    <div class='row'>
+      <div class='header__inner col col-12'>
+        <div class='logo'>
+          <a class='logo__link' href={withBase('/')}>
+            {
+              settings.site.logo ? (
+                <img
+                  class='logo__image'
+                  src={settings.site.logo}
+                  alt={settings.site.title}
+                />
+              ) : (
+                settings.site.title
+              )
+            }
+          </a>
+        </div>
+
+        <div class='menu-overlay'>
+          <nav class='main-nav'>
+            <div class='main-nav__box'>
+              <div class='nav__icon-close'>
+                <Icon name='fa7-solid:xmark' />
+              </div>
+
+              <div class='nav-grid'>
+                <div class='nav-grid__item'>
+                  <h2 class='nav-grid__title'>Menu</h2>
+                  <div class='mobile-nav'>
+                    <Navigation />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        <div class='navigation'>
+          <div class='top-nav'>
+            <Navigation />
+          </div>
+        </div>
+
+        <div class='nav-buttons'>
+          <Icon
+            name='fa7-solid:bars'
+            size='23'
+            class='nav__icon nav__icon-menu'
+          />
+          <div class='search-button'>
+            <Icon
+              name='fa7-solid:search'
+              size='20'
+              class='nav__icon nav__icon-search'
+            />
+            <span>Search</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- end header -->
+
+<Search />

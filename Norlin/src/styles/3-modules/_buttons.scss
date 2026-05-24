@@ -1,0 +1,74 @@
+@use "../0-settings/variables";
+
+/* Buttons */
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  font: inherit;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  -webkit-appearance: none;
+  text-align: center;
+  text-decoration: none;
+  color: variables.$white;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  &:hover {
+    color: variables.$white;
+  }
+
+  &--primary {
+    padding: 20px 40px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    background-color: variables.$blue-dark;
+    &:hover {
+      color: variables.$dark;
+      background-color: variables.$button-background-hover;
+    }
+  }
+
+  &--middle {
+    position: relative;
+    padding: 24px 48px;
+    width: 100%;
+    max-width: 412px;
+    font-family: variables.$heading-font-family;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all .2s ease;
+    background-color: variables.$dark;
+
+    &:hover {
+      background-color: variables.$blue-dark;
+    }
+  }
+
+  &--big {
+    display: block;
+    width: 100%;
+  }
+
+  &--loading {
+    &::after {
+      content: "";
+      display: block;
+      height: 16px;
+      width: 16px;
+      margin-left: 8px;
+      border: 2px solid variables.$white;
+      border-radius: 50%;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      -webkit-animation: spin .5s infinite linear;
+      animation: spin .5s infinite linear;
+    }
+  }
+}

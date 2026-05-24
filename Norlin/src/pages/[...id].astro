@@ -1,0 +1,65 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import OptimizedImage from '../components/OptimizedImage.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+
+  return pages.map((page) => ({
+    params: { id: page.id },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const { data } = page;
+const { Content } = await render(page);
+const isContactPage = page.id === 'contact';
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  image={data.image}
+>
+  {
+    data.image ? (
+      <section class='hero'>
+        <div class='hero__inner'>
+          <div class='hero__image'>
+            <OptimizedImage
+              src={data.image}
+              alt={data.title}
+              loading='eager'
+              fetchpriority='high'
+            />
+          </div>
+          <div class='hero__content'>
+            <h1 class='hero__title'>{data.title}</h1>
+            {data.description && <p class='hero__desc'>{data.description}</p>}
+          </div>
+        </div>
+      </section>
+    ) : (
+      <section class='hero-without-image'>
+        <div class='hero-inner'>
+          <div class='hero__content'>
+            <h1 class='hero__title'>{data.title}</h1>
+            {data.description && <p class='hero__desc'>{data.description}</p>}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <div class='container'>
+    <article class='page animate'>
+      <div class='page__content'>
+        <Content />
+        {isContactPage && <ContactForm />}
+      </div>
+    </article>
+  </div>
+</BaseLayout>

@@ -1,0 +1,35 @@
+---
+import { settings } from '../data/settings';
+const { title, description, src } = settings.hero;
+import OptimizedImage from './OptimizedImage.astro';
+---
+
+{
+  src ? (
+    <section class='hero'>
+      <div class='hero__inner'>
+        <div class='hero__image'>
+          <OptimizedImage
+            src={src}
+            alt={title}
+            loading='eager'
+            fetchpriority='high'
+          />
+        </div>
+        <div class='hero__content'>
+          {title && <h1 class='hero__title'>{title}</h1>}
+          {description && <p class='hero__desc'>{description}</p>}
+        </div>
+      </div>
+    </section>
+  ) : (
+    <section class='hero-without-image'>
+      <div class='hero-inner'>
+        <div class='hero__content'>
+          {title && <h1 class='hero__title'>{title}</h1>}
+          {description && <p class='hero__desc'>{description}</p>}
+        </div>
+      </div>
+    </section>
+  )
+}

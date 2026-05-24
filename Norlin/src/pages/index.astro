@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import FeaturedPosts from '../components/FeaturedPosts.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { settings } from '../data/settings';
+import { getCollection } from 'astro:content';
+
+const rawPosts = await getCollection('posts', ({ data }) => !data.draft);
+const posts = rawPosts.sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const featuredPosts = posts.filter((post) => post.data.featured === true);
+const { initial } = settings.pagination;
+const initialPosts = posts.slice(0, initial);
+const hasMore = posts.length > initial;
+---
+
+<BaseLayout
+  title={settings.site.title}
+  description={settings.site.description}
+  image={settings.site.image}
+>
+  <Hero />
+
+  <FeaturedPosts posts={featuredPosts} />
+
+  <div class='container'>
+    <div class='row' id='posts-list'>
+      {
+        initialPosts.map((post, i) => (
+          <ArticleCard post={post} index={i} isHome={true} />
+        ))
+      }
+    </div>
+
+    {
+      hasMore && (
+        <div class='load-more-section'>
+          <button
+            class='load-more-posts button button--middle'
+            data-next-page='1'
+            aria-busy='false'
+            aria-label='Load more posts'
+          >
+            Load more
+          </button>
+        </div>
+      )
+    }
+  </div>
+</BaseLayout>

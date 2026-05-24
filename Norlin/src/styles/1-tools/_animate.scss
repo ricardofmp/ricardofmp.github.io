@@ -1,0 +1,74 @@
+@use "../0-settings/variables";
+
+/* Animate */
+.animate {
+  animation: animateElement cubic-bezier(.300,.450,.450,.950) .75s;
+  animation-duration: 0.75s;
+  animation-iteration-count: 1;
+  transition: transform .2s;
+
+  @keyframes animateElement{
+    0% {
+      opacity:0;
+      transform: translate(0px,50px);
+    }
+    100% {
+      opacity:1;
+      transform: translate(0px,0px);
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+::view-transition-group(root) {
+  animation-duration: 0.6s;
+}
+
+::view-transition-old(root) {
+  animation: fadeOut 0.6s ease-in-out;
+}
+
+::view-transition-new(root) {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    background-color: variables.$dark;
+  }
+
+  100% {
+    opacity: 0;
+    background-color: variables.$dark;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    background-color: variables.$dark;
+  }
+
+  50% {
+    opacity: 0;
+    background-color: variables.$dark;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

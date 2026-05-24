@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils/paths';
+
+const allPosts = await getCollection('posts');
+
+const tagCounts = allPosts.flatMap((post) => post.data.tags || []).reduce((acc, tag) => {
+  const lower = tag.toLowerCase();
+  if (!acc[lower]) {
+    acc[lower] = { name: tag, count: 0 };
+  }
+  acc[lower].count += 1;
+  return acc;
+}, {} as Record<string, { name: string; count: number }>);
+
+const sortedTags = Object.values(tagCounts).sort((a, b) =>
+  a.name.localeCompare(b.name)
+);
+---
+
+<BaseLayout title="Tags">
+  <div class="container">
+    <div class="row">
+      <div class="col col-8 col-d-10 col-m-12 push-m-0 push-d-1 push-2">
+
+        <div class="tags__box">
+          <h1 class="tags__title">All Tags</h1>
+        </div>
+
+        <div class="tags__name animate">
+          {sortedTags.map((tag) => (
+            <a href={withBase(`/tags/${encodeURIComponent(tag.name.toLowerCase())}/`)}>
+              {tag.name} <sup>{tag.count}</sup>
+            </a>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</BaseLayout>

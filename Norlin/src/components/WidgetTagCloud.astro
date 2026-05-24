@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import { withBase } from '../utils/paths';
+
+const allPosts = await getCollection('posts');
+
+const rawTags = allPosts.flatMap((post) => post.data.tags || []);
+
+const tagMap = rawTags.reduce((acc, tag) => {
+  const lower = tag.toLowerCase();
+  if (!acc[lower]) {
+    acc[lower] = tag;
+  }
+  return acc;
+}, {} as Record<string, string>);
+
+const sortedKeys = Object.keys(tagMap).sort();
+---
+
+{
+  sortedKeys.length >= 1 && (
+    <div class="col col-4 col-d-6 col-t-12">
+      <div class="widget widget-tag-cloud">
+        <div class="widget__head">
+          <h3 class="widget__title">Explore Tags</h3>
+        </div>
+        <div class="tag__cloud">
+          {sortedKeys.map((key) => (
+            <a href={withBase(`/tags/${encodeURIComponent(key)}`)}>
+              {tagMap[key]}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}

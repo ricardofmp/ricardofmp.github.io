@@ -1,0 +1,66 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import ArticleCard from './ArticleCard.astro';
+
+interface Props {
+  currentPost: CollectionEntry<'posts'>;
+  limit?: number;
+}
+
+const { currentPost, limit = 3 } = Astro.props;
+
+function getRelatedPosts(
+  currentPost: CollectionEntry<'posts'>,
+  allPosts: CollectionEntry<'posts'>[],
+  limit: number
+): CollectionEntry<'posts'>[] {
+  const currentTags = currentPost.data.tags || [];
+
+  const otherPosts = allPosts.filter((post) => post.id !== currentPost.id);
+
+  const postsWithScore = otherPosts.map((post) => {
+    const postTags = post.data.tags || [];
+    const commonTags = postTags.filter((tag) => currentTags.includes(tag));
+    return {
+      post,
+      score: commonTags.length,
+    };
+  });
+
+  const postsWithCommonTags = postsWithScore.filter((item) => item.score > 0);
+
+  if (postsWithCommonTags.length >= limit) {
+    const sorted = postsWithCommonTags.sort(
+      (a, b) => b.post.data.date.valueOf() - a.post.data.date.valueOf()
+    );
+    return sorted.slice(0, limit).map((item) => item.post);
+  }
+
+  const sorted = otherPosts.sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+  );
+
+  return sorted.slice(0, limit);
+}
+
+const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+const relatedPosts = getRelatedPosts(currentPost, allPosts, limit);
+---
+
+{
+  relatedPosts.length > 0 && (
+    <div class='container'>
+      <div class='related-posts'>
+        <div class='container__inner'>
+          <h3 class='related-title'>You may also like</h3>
+          <div class='row grid'>
+            {relatedPosts.map((post) => (
+              <ArticleCard post={post} disableBig={true} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}

@@ -1,0 +1,126 @@
+---
+import { settings } from '../data/settings';
+import type { CollectionEntry } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import OptimizedImage from './OptimizedImage.astro';
+import { withBase } from '../utils/paths';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+  index?: number;
+  isHome?: boolean;
+  disableBig?: boolean;
+  isHidden?: boolean;
+  showFeaturedIcon?: boolean;
+}
+
+const {
+  post,
+  index = 0,
+  isHome = false,
+  disableBig = false,
+  isHidden = false,
+  showFeaturedIcon = false,
+} = Astro.props as Props;
+
+const isBig = !disableBig && isHome && index < 2;
+
+function getReadingTime(content?: string): number {
+  const safe = content ?? '';
+  const words = safe.split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 180));
+}
+---
+
+<div
+  class={`article col ${isBig ? 'col-6 col-t-12 animate article--big' : 'col-4 col-d-6 col-t-12 animate'} ${isHidden ? 'hidden' : ''}`}
+>
+  <div class='article__inner'>
+    {
+      showFeaturedIcon && post.data.featured && (
+        <span class='featured-post'>
+          <Icon name='fa7-regular:star' size='19' />
+        </span>
+      )
+    }
+    {
+      post.data.image && (
+        <a class='article__image' href={withBase(`/posts/${post.id}`)}>
+          <OptimizedImage
+            src={post.data.image}
+            alt={post.data.title}
+            loading={index < 2 ? 'eager' : 'lazy'}
+            fetchpriority={index < 2 ? 'high' : 'auto'}
+          />
+        </a>
+      )
+    }
+
+    <div class='article__content'>
+      <div class='article__meta'>
+        <span class='article__minutes'>
+          {getReadingTime(post.body)} min read
+          <time class='article__date' datetime={post.data.date.toISOString()}>
+            {
+              post.data.date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+              })
+            }
+          </time>
+        </span>
+      </div>
+
+      <h2 class='article__title'>{post.data.title}</h2>
+
+      {
+        post.data.description && (
+          <p class='article__excerpt'>{post.data.description}</p>
+        )
+      }
+
+      <div class='article__bottom'>
+        {
+          settings.author.src && (
+            <div class='article__author'>
+              <a href={withBase('/about/')} aria-label={settings.author.name}>
+                <OptimizedImage
+                  class='article__author-image'
+                  src={settings.author.src}
+                  alt={settings.author.name}
+                  loading='lazy'
+                  fetchpriority='auto'
+                />
+              </a>
+            </div>
+          )
+        }
+
+        <div class='article__bottom-meta'>
+          <a href={withBase('/about/')} class='article__author-link'>
+            {settings.author.name}
+          </a>
+
+          {
+            post.data.tags.length > 0 && (
+              <>
+                <span>in</span>
+                <span class='article-tags'>
+                  {post.data.tags.map((tag: string) => (
+                    <a
+                      href={withBase(`/tags/${encodeURIComponent(tag.toLowerCase())}`)}
+                      class='article__tag'
+                    >
+                      {tag}
+                    </a>
+                  ))}
+                </span>
+              </>
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

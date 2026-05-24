@@ -1,0 +1,72 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+import { settings } from '../../../data/settings';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+
+  const rawTags = allPosts.flatMap((post) => post.data.tags || []);
+
+  const tagMap = rawTags.reduce(
+    (acc, tag) => {
+      const lower = tag.toLowerCase();
+      if (!acc[lower]) acc[lower] = tag;
+      return acc;
+    },
+    {} as Record<string, string>,
+  );
+
+  const uniqueLowerTags = Object.keys(tagMap);
+
+  return uniqueLowerTags.map((tagLower) => {
+    const filteredPosts = allPosts
+      .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+      .filter((post) =>
+        post.data.tags?.some((t) => t.toLowerCase() === tagLower),
+      );
+
+    return {
+      params: { id: tagLower },
+      props: {
+        tagName: tagMap[tagLower],
+        posts: filteredPosts,
+      },
+    };
+  });
+}
+
+const { posts, tagName } = Astro.props;
+const { id } = Astro.params;
+const { initial } = settings.pagination;
+
+const initialPosts = posts.slice(0, initial);
+---
+
+<BaseLayout title={`Tag: ${tagName}`}>
+  <div class='container'>
+
+    <div class='archive-box'>
+      <span class='archive-meta'>
+        {posts.length}
+        {posts.length === 1 ? 'post' : 'posts'} tagged
+      </span>
+      <h1 class='archive-title'>{tagName}</h1>
+    </div>
+
+    <div class='row' id='posts-list'>
+      {initialPosts.map((post, i) => <ArticleCard post={post} index={i} />)}
+    </div>
+
+    {
+      posts.length > initial && (
+        <div class='load-more-section'>
+          <button class='load-more-posts button button--middle' data-next-page='1' data-tag={id} aria-label="Load more posts">
+            Load More
+          </button>
+        </div>
+      )
+    }
+  </div>
+</BaseLayout>

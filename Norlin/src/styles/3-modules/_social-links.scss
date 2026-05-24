@@ -1,0 +1,51 @@
+@use "../0-settings/variables";
+@use "../1-tools/grid";
+
+/* Social Links */
+.social {
+  text-align: center;
+
+  .social__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    @media only screen and (max-width: grid.$tablet) {
+      justify-content: flex-start;
+    }
+  }
+
+  .social__item {
+    display: inline-block;
+    margin-left: 8px;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  .social__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+    line-height: 40px;
+    border-radius: 8px;
+    color: variables.$white;
+    background-color: variables.$blue-dark;
+    &:hover {
+      color: variables.$dark;
+      background-color: variables.$brand-color;
+    }
+  }
+
+  @media (max-width: grid.$desktop) {
+    margin-bottom: 8px;
+
+    .social__item {
+      margin-bottom: 8px;
+    }
+  }
+}

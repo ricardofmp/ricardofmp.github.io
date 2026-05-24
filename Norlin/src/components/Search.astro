@@ -1,0 +1,39 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div class='search' id='search-overlay'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col col-12'>
+        <div class='search__box' id='search-box'>
+          <div class='search__group'>
+            <div class='search__close' id='search-close-btn'>
+              <Icon name='fa7-solid:xmark' size='29' />
+            </div>
+            <label for='search-input' class='screen-reader-text'>Search</label
+            >
+            <input
+              type='text'
+              id='search-input'
+              class='search__text'
+              autocomplete='off'
+              placeholder='Type to search...'
+            />
+            <div
+              id='search-loader'
+              class='search-loader'
+              style='display: none;'
+            >
+              <div class='spinner'></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id='search-results' class='row search-results-list'></div>
+  </div>
+</div>

@@ -1,0 +1,101 @@
+@use "../0-settings/variables";
+
+/*
+  Syntax Highlighting
+*/
+
+/* Override Astro's default code block styles */
+.astro-code {
+  border-radius: 4px !important;
+  background-color: variables.$blue-dark !important;
+}
+
+/* GitHub Gist */
+.gist {
+  font-size: 14px !important;
+}
+
+.gist .gist-file {
+  border: 2px solid variables.$brand-color !important;
+  border-radius: 4px !important;
+  margin-bottom: 16px !important;
+}
+
+.gist .gist-data {
+  background-color: variables.$background-color !important;
+  border-bottom: none !important;
+}
+
+.gist table {
+  background: variables.$background-color !important;
+}
+
+.gist .highlight {
+  background: variables.$background-color !important;
+}
+
+.gist td.blob-num {
+  background: variables.$background-color !important;
+}
+
+.gist td.blob-code {
+  background: variables.$background-color !important;
+}
+
+.gist .gist-meta {
+  background-color: variables.$brand-color !important;
+  color: variables.$background-color !important;
+  padding: 10px !important;
+}
+
+.gist .gist-meta a {
+  color: variables.$background-color !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+}
+
+.gist .gist-meta a:hover {
+  text-decoration: underline !important;
+}
+
+.gist .blob-num {
+  background: variables.$background-color !important;
+  color: variables.$white !important;
+  border: none !important;
+}
+
+.gist .blob-code {
+  background: variables.$background-color !important;
+  color: variables.$white !important;
+}
+
+.gist .blob-code-inner {
+  color: variables.$white !important;
+}
+
+.gist .pl-c {
+  color: variables.$white;
+  font-style: italic !important;
+}
+
+.gist .pl-k,      /* Keyword */
+.gist .pl-s,      /* String */
+.gist .pl-e,      /* Entity */
+.gist .pl-en,     /* Entity name */
+.gist .pl-v,      /* Variable */
+.gist .pl-bu,     /* Built-in */
+.gist .pl-ii,     /* Invalid illegal */
+.gist .pl-c1,     /* Constant */
+.gist .pl-ml,     /* Markup list */
+.gist .pl-mh,     /* Markup heading */
+.gist .pl-ms,     /* Markup styling */
+.gist .pl-mi,     /* Markup italic */
+.gist .pl-mb,     /* Markup bold */
+.gist .pl-md,     /* Markup deleted */
+.gist .pl-mi1,    /* Markup inserted */
+.gist .pl-mc,     /* Markup changed */
+.gist .pl-sr,     /* String regex */
+.gist .pl-sra,    /* String regex anchor */
+.gist .pl-sre {   /* String regex escape */
+  color: variables.$brand-color !important;
+}

@@ -1,0 +1,18 @@
+---
+import { Icon } from 'astro-icon/components';
+import { settings } from '../data/settings';
+
+const { socialLinks } = settings;
+---
+
+<div class='social'>
+  <ul class='social__list list-reset'>
+    {socialLinks.map((item) => (
+      <li class='social__item'>
+        <a class='social__link' href={item.link} target='_blank' rel='noopener noreferrer' aria-label={`${item.name} link`}>
+          <Icon name={item.icon} size={19} />
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>

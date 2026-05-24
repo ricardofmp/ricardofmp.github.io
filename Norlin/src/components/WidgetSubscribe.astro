@@ -1,0 +1,51 @@
+---
+import { settings } from '../data/settings';
+
+const { newsletter } = settings;
+---
+
+{
+  newsletter.enabled && (
+    <div class='col col-4 col-d-6 col-t-12'>
+      <div class='widget widget-subscribe'>
+        <div class='widget__head'>
+          <h3 class='widget__title'>Get Interesting News</h3>
+        </div>
+        <p class='subscribe-subtitle'>{newsletter.description}</p>
+        <form
+          class='subscribe-form validate'
+          action={newsletter.mailchimpIdentifier ? `//${newsletter.mailchimpIdentifier}` : '#'}
+          method='POST'
+          id='membedded-subscribe-form'
+          name='membedded-subscribe-form'
+          target='_blank'
+          novalidate
+        >
+          <div class='subscribe-group'>
+            <div class='subscribe-group-top'>
+              <label class='screen-reader-text' for='mce-EMAIL'>
+                Email address
+              </label>
+              <input
+                class='subscribe-email required email'
+                id='mce-EMAIL'
+                type='email'
+                name='EMAIL'
+                placeholder='Email Address'
+                required
+              />
+              <button
+                class='subscribe-button button button--primary'
+                id='membedded-subscribe'
+                type='submit'
+                name='subscribe'
+              >
+                {newsletter.buttonText}
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  )
+}

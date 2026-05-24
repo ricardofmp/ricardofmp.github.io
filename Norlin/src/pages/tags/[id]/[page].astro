@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleCard from '../../../components/ArticleCard.astro';
+import { settings } from '../../../data/settings';
+
+export async function getStaticPaths({ paginate }: any) {
+  const { initial, step } = settings.pagination;
+  const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+
+  const tags = [...new Set(allPosts.flatMap((post) => post.data.tags || []).map((t) => t.toLowerCase()))];
+
+  return tags.flatMap((tagId) => {
+    const filteredPosts = allPosts
+      .filter((post) => post.data.tags?.some((t) => t.toLowerCase() === tagId))
+      .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+    if (filteredPosts.length <= initial) return [];
+
+    const remainingPosts = filteredPosts.slice(initial);
+
+    return paginate(remainingPosts, {
+      params: { id: tagId },
+      pageSize: step,
+    });
+  });
+}
+
+const { page } = Astro.props as { page: any };
+const { initial, step } = settings.pagination;
+const startIndex = initial + (page.currentPage - 1) * step;
+---
+
+{
+  page.data.map((post: any, i: number) => (
+    <ArticleCard
+      post={post}
+      index={startIndex + i}
+      isHome={false}
+    />
+  ))
+}
+
+{
+  page.url.next && (
+    <div
+      id='next-page-info'
+      data-next-page={page.currentPage + 1}
+      style='display:none;'
+    />
+  )
+}
