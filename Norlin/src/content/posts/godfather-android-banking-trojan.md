@@ -2,7 +2,7 @@
 title: Godfather\: An Android Banking Trojan
 description: Analysis of a Godfather Android banking Trojan sample, including accessibility abuse, C2 retrieval, overlay attacks, and IoCs.
 date: 2024-02-01 15:01:35 +0000
-image: '../../images/04.jpg'
+image: 'Norlin/public/images/godfather-v1/godfather.png'
 tags: [Miscellaneous, Malware Analysis, Android, Outdated]
 ---
 
