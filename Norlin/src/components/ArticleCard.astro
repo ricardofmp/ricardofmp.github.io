@@ -24,6 +24,8 @@ const {
 } = Astro.props as Props;
 
 const isBig = !disableBig && isHome && index < 2;
+const isOutdated = post.data.tags.some((tag) => tag.toLowerCase() === 'outdated');
+const cardImage = post.data.cover || post.data.image;
 
 function getReadingTime(content?: string): number {
   const safe = content ?? '';
@@ -43,11 +45,12 @@ function getReadingTime(content?: string): number {
         </span>
       )
     }
+    {isOutdated && <span class='outdated-post'>Outdated</span>}
     {
-      post.data.image && (
+      cardImage && (
         <a class='article__image' href={withBase(`/posts/${post.id}`)}>
           <OptimizedImage
-            src={post.data.image}
+            src={cardImage}
             alt={post.data.title}
             loading={index < 2 ? 'eager' : 'lazy'}
             fetchpriority={index < 2 ? 'high' : 'auto'}

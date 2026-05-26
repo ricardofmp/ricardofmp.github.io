@@ -63,6 +63,30 @@
       right: 20px;
     }
   }
+
+  .outdated-post {
+    position: absolute;
+    top: 20px;
+    left: 32px;
+    z-index: 10;
+    display: inline-flex;
+    padding: 7px 10px;
+    font-size: 11px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 2px solid #ff6b35;
+    border-radius: 999px;
+    color: #fff;
+    background: rgba(176, 45, 20, 0.92);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+    pointer-events: none;
+
+    @media (max-width: grid.$mobile) {
+      left: 20px;
+    }
+  }
 }
 
 .article__title {

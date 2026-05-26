@@ -22,12 +22,14 @@ function getReadingTime(content?: string): number {
       <h3 class="widget__title">Latest Posts</h3>
     </div>
 
-    {posts.map((post) => (
+    {posts.map((post) => {
+      const postImage = post.data.cover || post.data.image;
+      return (
       <div class="recent-posts">
-        {post.data.image && (
+        {postImage && (
           <a class="recent-posts__image" href={withBase(`/posts/${post.id}`)}>
             <OptimizedImage
-              src={post.data.image}
+              src={postImage}
               alt={post.data.title}
               loading="lazy"
             />
@@ -70,6 +72,6 @@ function getReadingTime(content?: string): number {
           </div>
         </div>
       </div>
-    ))}
+    )})}
   </div>
 </div>
