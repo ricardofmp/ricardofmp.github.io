@@ -6,7 +6,7 @@ cover: '/images/godfather-v1/godfather.png'
 tags: [Miscellaneous, Malware Analysis, Android, Outdated]
 ---
 
-This is a sample gathered from [MalwareBazaar](https://bazaar.abuse.ch/sample/20116083565a50f6b2db59011e9994e9a9f5db5994703d53233b8b202a5ad2f3/). First posted in February 2024.
+Sample gathered from [MalwareBazaar](https://bazaar.abuse.ch/sample/20116083565a50f6b2db59011e9994e9a9f5db5994703d53233b8b202a5ad2f3/). First posted in February 2024.
 
 # The Godfather
 
@@ -114,12 +114,6 @@ What it may have, based on prior examination of Godfather's characteristics:
 - Notification listener
 - Sending SMS from infected device
 - Receiving commands from C&C
-
-# Conclusion
-
-This was a very challenging sample to analyze, as it has a lot of obfuscation techniques.
-
-Due to time restrictions, we will not explore the full capabilities of the malware. This post will be updated as we analyze it further in the future.
 
 # IoCs
 
