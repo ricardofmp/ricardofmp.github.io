@@ -42,10 +42,9 @@ export const settings = {
   navigation: {
     items: [
       { title: 'Home', url: '/' },
-      { title: 'About', url: '/about/' },
-      { title: 'Contact Me', url: '/contact/' },
-      { title: 'Style Guide', url: '/styleguide/' },
-      { title: 'Get Theme', url: 'http://anvodstudio.com/themes/astro/norlin', external: true },
+      { title: 'Research', url: '/research/' },
+      { title: 'Miscellaneous', url: '/miscellaneous/' },
+      { title: 'IOC Briefs', url: '/ioc-briefs/' },
     ],
   },
 
