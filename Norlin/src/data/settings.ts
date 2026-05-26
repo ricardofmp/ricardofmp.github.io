@@ -8,7 +8,7 @@ export const settings = {
   site: {
     title: 'The Analyst Report',
     logo: '', // '/images/logo.png',
-    description: 'Norlin – A Beautiful Dark Blog Theme for Astro.',
+    description: 'The Analyst Research publishes threat intelligence research, IOC briefs, and security notes.',
     url: 'https://norlin-astro.netlify.app',
     image: '/images/og-image.jpg',
     language: 'en',
