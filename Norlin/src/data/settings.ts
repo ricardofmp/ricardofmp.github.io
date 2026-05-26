@@ -6,7 +6,7 @@ export const settings = {
    * Site
    * ----------------------------- */
   site: {
-    title: 'KOMPROMAT',
+    title: 'The Analyst Report',
     logo: '', // '/images/logo.png',
     description: 'Norlin – A Beautiful Dark Blog Theme for Astro.',
     url: 'https://norlin-astro.netlify.app',
