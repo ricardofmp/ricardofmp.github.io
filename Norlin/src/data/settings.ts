@@ -32,7 +32,7 @@ export const settings = {
    * Author
    * ----------------------------- */
   author: {
-    name: 'Robert Wilson',
+    name: 'Ricardo M. Pereirason',
     src: avatar,
   },
 
@@ -61,7 +61,7 @@ export const settings = {
    * Hero
    * ----------------------------- */
   hero: {
-    title: 'Robert Wilson',
+    title: 'Ricardo M. Pereirason',
     description: 'Thoughts, stories and ideas.',
     src: heroImage,
   },
