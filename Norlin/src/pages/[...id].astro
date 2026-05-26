@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import OptimizedImage from '../components/OptimizedImage.astro';
 import ContactForm from '../components/ContactForm.astro';
+import ArticleCard from '../components/ArticleCard.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages');
@@ -17,6 +18,17 @@ const { page } = Astro.props;
 const { data } = page;
 const { Content } = await render(page);
 const isContactPage = page.id === 'contact';
+const sectionTags: Record<string, string> = {
+  miscellaneous: 'Miscellaneous',
+  research: 'Research',
+  'ioc-briefs': 'IOC Briefs',
+};
+const sectionTag = sectionTags[page.id];
+const sectionPosts = sectionTag
+  ? (await getCollection('posts', ({ data }) => !data.draft))
+      .filter((post) => post.data.tags?.some((tag) => tag === sectionTag))
+      .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  : [];
 ---
 
 <BaseLayout
@@ -61,5 +73,15 @@ const isContactPage = page.id === 'contact';
         {isContactPage && <ContactForm />}
       </div>
     </article>
+
+    {
+      sectionTag && sectionPosts.length > 0 && (
+        <div class='row' id='posts-list'>
+          {sectionPosts.map((post, i) => (
+            <ArticleCard post={post} index={i} disableBig />
+          ))}
+        </div>
+      )
+    }
   </div>
 </BaseLayout>
