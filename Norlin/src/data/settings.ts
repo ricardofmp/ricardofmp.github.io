@@ -19,7 +19,7 @@ export const settings = {
    * ----------------------------- */
   seo: {
     twitter: {
-      handle: '@yourusername',
+      handle: '@danalystreport',
       site: '@yourusername',
       cardType: 'summary_large_image',
     },
@@ -61,8 +61,8 @@ export const settings = {
    * Hero
    * ----------------------------- */
   hero: {
-    title: 'Ricardo M. Pereira',
-    description: 'Thoughts, stories and ideas.',
+    title: 'The Analyst Report by Ricardo M. Pereira',
+    description: 'Cyber Threat Intelligence research, IOC briefs, and security notes.',
     src: heroImage,
   },
 
