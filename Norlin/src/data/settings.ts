@@ -62,7 +62,7 @@ export const settings = {
    * ----------------------------- */
   hero: {
     title: 'The Analyst Report by Ricardo M. Pereira',
-    description: 'Cyber Threat Intelligence research, IOC briefs, and security notes.',
+    description: 'Cyber Threat Intelligence research and IOC briefs focused on adversary infrastructure.',
     src: heroImage,
   },
 
