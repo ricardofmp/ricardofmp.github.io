@@ -7,7 +7,7 @@ export const settings = {
    * ----------------------------- */
   site: {
     title: 'The Analyst Report',
-    logo: '', // '/images/logo.png',
+    logo: '/images/logo.png', // '/images/logo.png',
     description: 'The Analyst Research publishes threat intelligence research, IOC briefs, and security notes.',
     url: 'https://norlin-astro.netlify.app',
     image: '/images/og-image.jpg',
