@@ -30,11 +30,13 @@ jobs:
 
       - name: Build site
         working-directory: Norlin
-        run: npx astro build --force
+        run: npm run build
+        env:
+          OUT_DIR: ./dist
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: docs
+          path: Norlin/dist
 
   deploy:
     needs: build

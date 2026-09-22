@@ -16,7 +16,7 @@ const base = process.env.BASE_PATH || '/';
 export default defineConfig({
   site,
   base,
-  outDir: '../docs',
+  outDir: process.env.OUT_DIR || '../docs',
   fonts: [
     {
       provider: fontProviders.fontsource(),
