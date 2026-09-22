@@ -30,7 +30,7 @@ jobs:
 
       - name: Build site
         working-directory: Norlin
-        run: npm run build
+        run: npx astro build --force
 
       - uses: actions/upload-pages-artifact@v3
         with:
