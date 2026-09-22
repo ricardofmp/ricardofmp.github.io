@@ -34,7 +34,7 @@ If granted, the system will open this dialog and the malware will send an implic
 
 While it is trying to trick the user, the malware creates a file called `app.xml` on the `shared_prefs` folder, that will hold a lot of values that will be used and changed throughout the process lifespan. This contains boolean values used for checks, such as anti-emulation techniques, a list of packages for banking apps with the corresponding name encrypted with Blowfish and decrypted at runtime, language values, other strings, and some additional values also encrypted with Blowfish. One example is the value corresponding to the `min` key, which will be the C&C and starts with `google.com`.
 
-After that, it goes to a Telegram channel and retrieves its description, that is the new C&C. It puts the encrypted value on the `app.xml` shared preferences.
+After that, it goes to a Telegram channel and retrieves its description, that is the new C&C. This is a technique known as [Dead Drop Resolver](https://attack.mitre.org/techniques/T1102/001/), where the malware uses a legitimate external web service to host the actual C2 address. It puts the encrypted value on the `app.xml` shared preferences.
 
 ![Decrypt Telegram channel URL](/images/godfather-v1/4.png)
 *Figure 4: Decrypt Telegram channel URL.*
